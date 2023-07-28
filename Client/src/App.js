@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-
+import CollapsibleExample from './Components/Navbar/Navbar'
+import About from './Components/About/About'
 
 function App() {
   return (
-    <div className="App">
-     <h1>EventMS</h1>
-    </div>
+   <>
+   <CollapsibleExample />
+   <About />
+   </>
   );
 }
 
