@@ -200,3 +200,21 @@ text-align: center;
 }
 .copyright a{color:#ffffff;transition: all 0.2s ease 0s;}
 .copyright a:hover{color:#ff3666;}
+
+@media only screen and (max-width: 768px) {
+    .single_footer {
+      margin-bottom: 30px;
+    }
+  
+    /* Additional styles for responsiveness at or below 768px */
+    /* For example, you can adjust the font size or margins */
+  }
+  
+  @media only screen and (max-width: 576px) {
+    /* Additional styles for responsiveness at or below 576px */
+    /* For example, you can stack the footer columns vertically */
+    .single_footer,
+    .single_footer_address {
+      text-align: center;
+    }
+  }
