@@ -1,0 +1,55 @@
+/* works.css */
+
+/* Base styles for the component */
+.how-it-works-title {
+    margin-left: 190px;
+  }
+  
+  .how-it-works-container {
+    display: flex;
+    align-items: center;
+    margin-left: 90px;
+    margin-right: 20px;
+  }
+  
+  .works-image {
+    width: 518px;
+    height: 608px;
+    border-radius: 25px;
+  }
+  
+  .works-description {
+    /* Add any styles specific to the works description here */
+  }
+  
+  /* Media queries for responsiveness */
+  @media only screen and (max-width: 768px) {
+    .how-it-works-title {
+      /* Adjust the styles for screens up to 768 pixels wide */
+      /* For example, you can change font size or margins */
+      margin-left: 10px;
+    }
+  
+    .how-it-works-container {
+      /* Adjust the styles for screens up to 768 pixels wide */
+      /* For example, you can stack the elements vertically */
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  
+    .works-image {
+      /* Adjust the styles for screens up to 768 pixels wide */
+      /* For example, reduce the image size */
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Add more media queries for other screen sizes as needed */
+.works{
+    columns: green;
+}  
