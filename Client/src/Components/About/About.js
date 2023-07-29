@@ -21,7 +21,7 @@ function About() {
           </div>
          
         </div>
-        <img src={img1} className="img-fluid" alt="Responsive image" style={{ width: '100%', height: 'auto', opacity: '0.8', zIndex: 0 }} />
+        <img src={img1} className="img-fluid" alt="Responsive image" style={{ width: '100%', height: 'auto',   filter: 'brightness(0.8)', zIndex: 0 }} />
         <h3 style={{ paddingTop: '50px', textAlign: 'center' }}>Events created by thousands of organizations around the globe</h3>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', margin: '50px 0' }}>
           <img src={img2} className="img-fluid" alt="" style={{ maxWidth: '200px', margin: '10px' }} />
