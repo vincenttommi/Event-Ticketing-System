@@ -4,8 +4,8 @@ import './works.css';
 
 function Work() {
   return (
-    <>
-      <h2 className="how-it-works-title">How it Works</h2>
+    <><div style={{paddingBottom:'80px'}}>
+<h2 className="how-it-works-title">How it Works</h2>
       <div className="how-it-works-container">
         <img src={img1} alt="Your Image" className="works-image" />
         <div className="works-description">
@@ -18,6 +18,8 @@ function Work() {
           </ol>
         </div>
       </div>
+    </div>
+      
     </>
   );
 }
