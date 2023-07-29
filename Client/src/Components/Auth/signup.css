@@ -1,0 +1,11 @@
+.signup-form {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 140px; /* Add a top margin to push the form away from the top */
+  }
+  
+  .forgot-password {
+    margin-top: 10px;
+  }
+  

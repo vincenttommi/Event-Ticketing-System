@@ -17,7 +17,7 @@ function CollapsibleExample() {
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#Login">Login</Nav.Link>
+            <Nav.Link href="{Login}">Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
