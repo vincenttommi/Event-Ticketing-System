@@ -1,37 +1,57 @@
 import React from "react";
-import ReviewCard from "../Reviewcard/reviewcard";
+import ReviewCard from "../reviewcard/reviewcard";
+import Card from "../card";
+import img2 from '../../assests/gogle.png';
+import img3 from '../../assests/moringa.png';
+import img4 from '../../assests/safaricom.png';
+import img5 from '../../assests/yotube.png';
+import img6 from '../../assests/microsoft.png';
 import './industry.css';
 
 function Industry(){
     return (
-    <div className="industryContents">
-        <div class="container">
-            <div class="image">
-                <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80" alt="meetings"></img>
-            </div>
-            <div class="about-content">
-                <h1>The powerful ticketing platform for all events</h1>
-                <p>Organize professional events such as conferences, seminars, 
+    <div style={{ position: 'relative' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', zIndex: 1}}>
+            <div style={{ paddingTop: '250px', color: '#fff', textAlign: 'center' }}>
+                <h2 >
+                The powerful ticketing platform for all events
+                </h2>
+                <h4>Organize professional events such as conferences, seminars, 
                     galas, dinners, and end of year parties with EventMS.
-                </p>
+                </h4>          
             </div>
-        </div><br></br>
-        <div class="event-sponsor">
-            Events created by thousands of organisations around 
-            Kenya with EMS
-        </div><br></br><br></br>
-        <div class="sponsors">
-            <img src="https://cyberogism.com/wp-content/uploads/2023/03/Spotify-Logo.png" alt="spotify"></img>
-            <img src="https://img.etimg.com/thumb/msid-96617487,width-300,height-225,imgsize-11564,,resizemode-75/google-asks-users-about-their-first-searches-in-2023-internet-reacts.jpg" alt="google"></img>
-            <img src="" alt="safaricom"></img>
-            <img src="" alt="youtube"></img>
-            <img src="" alt="microsoft"></img>
         </div>
+        <img src="https://images.unsplash.com/photo-1690292877741-12bfea5c748f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80" className="img-fluid" alt="Responsive image" style={{ width: '100%', height: '10%',   filter: 'brightness(0.8)', zIndex: 0 }} />
+        <h3 style={{ paddingTop: '50px', textAlign: 'center' }}>Events created by thousands of organizations around the globe</h3>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', margin: '50px 0' }}>
+            <img src={img2} className="img-fluid" alt="" style={{ maxWidth: '200px', margin: '10px' }} />
+            <img src={img3} className="img-fluid" alt="" style={{ maxWidth: '200px', margin: '10px' }} />
+            <img src={img4} className="img-fluid" alt="" style={{ maxWidth: '200px', margin: '10px' }} />
+            <img src={img5} className="img-fluid" alt="" style={{ maxWidth: '200px', margin: '10px' }} />
+            <img src={img6} className="img-fluid" alt="" style={{ maxWidth: '200px', margin: '10px' }} />
+        </div> 
         <div class="reason">
             Why choose EventMS for your next business event?
-        </div><br></br><br></br>
-        <div class="reason-card">
-
+        </div><br></br>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', margin: '50px 0' }}>
+            <Card>
+                <h2>Powerful features</h2>
+                <p>Lorem ipsum dolor sit amet. Est molestiae animi 
+            eum voluptates quae et laborum voluptas et laborum voluptatem vel suscipit quia 
+            qui assumenda distinctio aut tenetur sint. </p>
+            </Card>
+            <Card>
+                <h2>Easy Tracking of bookings</h2>
+                <p>Lorem ipsum dolor sit amet. Est molestiae animi 
+            eum voluptates quae et laborum voluptas et laborum voluptatem vel suscipit quia 
+            qui assumenda distinctio aut tenetur sint. </p>
+            </Card>
+            <Card>
+                <h2>Secure payment</h2>
+                <p>Lorem ipsum dolor sit amet. Est molestiae animi 
+            eum voluptates quae et laborum voluptas et laborum voluptatem vel suscipit quia 
+            qui assumenda distinctio aut tenetur sint. </p>
+            </Card>
         </div>
         <div class="industries">
             Trusted by industries like yours
