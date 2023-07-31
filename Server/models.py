@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.schema import CheckConstraint 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db'  # Replace with your database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db' 
 db = SQLAlchemy(app)
 
 
@@ -24,7 +24,6 @@ class Customer(db.Model):
     phone_number = db.Column(db.String, nullable=False)
     ticket_number = db.Column(db.Integer)  # Add ticket_number field to store the customer's ticket number
 
-    # Relationship to BookedEvents with backref 'customer'
     booked_events = db.relationship('BookedEvents', backref='customers', lazy=True)
 
 
@@ -41,10 +40,7 @@ class Organiser(db.Model):
         CheckConstraint(industry.in_(['Business', 'Political', 'Academic', 'Charity', 'Community', 'Entertainment', 'Sporting'])),
     )
 
-    # Relationship to Events with backref 'organiser'
     events = db.relationship('Events', backref='organisers', lazy=True)
-
-    # Relationship to Payment with backref 'organisers'
     payments = db.relationship('Payment', backref='organisers', lazy=True)
 
 
@@ -53,7 +49,7 @@ class Events(db.Model):
     __tablename__ = 'events'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
-    _price = db.Column('price', db.Float, nullable=False)  # Private column for price
+    _price = db.Column('price', db.Float, nullable=False)
     location = db.Column(db.String, nullable=False)
     image = db.Column(db.String, nullable=True)
     time = db.Column(db.String, nullable=False)
@@ -61,7 +57,7 @@ class Events(db.Model):
     organiser_id = db.Column(db.Integer, db.ForeignKey('organisers.id'), nullable=False)
     tickets_number = db.Column(db.Integer, default=0, nullable=False)
     tickets_status = db.Column(db.String, default='0', nullable=False)
-    ticket_level = db.Column(db.String, nullable=False)  # Add ticket_level field
+    ticket_level = db.Column(db.String, nullable=False)  # ticket_level field
 
     def get_price(self):
         return self._price
@@ -69,7 +65,7 @@ class Events(db.Model):
     def set_price(self, new_price):
         self._price = new_price
 
-    price = property(get_price, set_price)  # Property for price with getter and setter
+    price = property(get_price, set_price)
 
     def get_price_by_ticket_level(self):
         if self.ticket_level == 'VIP':
@@ -79,10 +75,8 @@ class Events(db.Model):
         else:
             return self._price
 
-    # Relationship to BookedEvents with backref 'booked_events'
     booked_events = db.relationship('BookedEvents', backref='events', lazy=True)
 
-    # Relationship to Revenue with backref 'events'
     revenue = db.relationship('Revenue', backref='events', lazy=True)
 
 
