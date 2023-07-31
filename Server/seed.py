@@ -4,13 +4,13 @@ from models import db, Admin, Customer, Organiser, Events, BookedEvents, Payment
 from faker import Faker
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db' # Replace with your database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db'
 db.init_app(app)
 fake = Faker()
 
 
 def create_fake_data():
-    # Generate fake data for Admin
+#admin faker
     for _ in range(5):
         admin = Admin(
             name=fake.name(),
@@ -18,8 +18,7 @@ def create_fake_data():
             email=fake.email()
         )
         db.session.add(admin)
-
-    # Generate fake data for Customer
+#customer faker
     for _ in range(10):
         customer = Customer(
             name=fake.name(),
@@ -30,7 +29,7 @@ def create_fake_data():
         )
         db.session.add(customer)
 
-    # Generate fake data for Organiser
+    # Organiser faker
     for _ in range(5):
         organiser = Organiser(
             name=fake.name(),
@@ -41,7 +40,7 @@ def create_fake_data():
         )
         db.session.add(organiser)
 
-    # Generate fake data for Events
+    # Events faker
     for _ in range(20):
         event = Events(
             title=fake.sentence(nb_words=3),
@@ -57,7 +56,7 @@ def create_fake_data():
         )
         db.session.add(event)
 
-    # Generate fake data for BookedEvents
+    # BookedEvents faker
     for _ in range(30):
         event = Events.query.get(fake.random_element(elements=Events.query.all()).id)
         customer = Customer.query.get(fake.random_element(elements=Customer.query.all()).id)
@@ -71,7 +70,7 @@ def create_fake_data():
         )
         db.session.add(booked_event)
 
-    # Generate fake data for Payment
+    # Payment faker
     for _ in range(30):
         event = Events.query.get(fake.random_element(elements=Events.query.all()).id)
         customer = Customer.query.get(fake.random_element(elements=Customer.query.all()).id)
@@ -85,7 +84,7 @@ def create_fake_data():
         )
         db.session.add(payment)
 
-    # Generate fake data for Revenue
+    #  Revenue faker
     for event in Events.query.all():
         revenue = Revenue(
             total_amount=fake.random_number(digits=5),
@@ -99,10 +98,6 @@ def create_fake_data():
 
 if __name__ == '__main__':
     with app.app_context():
-        # Create the database tables
         db.create_all()
-
-        # Generate fake data and populate the database
         create_fake_data()
-
     app.run()
