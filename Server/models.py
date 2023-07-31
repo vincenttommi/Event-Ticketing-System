@@ -1,78 +1,114 @@
-#app/models.py
-from  sqlalchemy  import ForeignKey
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.schema import CheckConstraint 
 
-# Flask-serialize is intended for joining a
-# Flask SQLAlchemy Python backend with a JavaScript Web clien
-db = SQLAlchemy()
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db'  # Replace with your database URI
+db = SQLAlchemy(app)
+
+
 class Admin(db.Model):
     __tablename__ = 'admin'
-    admin_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
     password = db.Column(db.String, nullable=False)
-    organisers = db.relationship('Organiser', backref='admin', lazy=True)
+    email = db.Column(db.String, nullable=False)
+
+
 class Customer(db.Model):
-    __tablename__ = 'customer'
-    customer_id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String, nullable=False)
-    last_name = db.Column(db.String, nullable=False)
+    __tablename__ = 'customers'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    password = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False)
     phone_number = db.Column(db.String, nullable=False)
-    location = db.Column(db.String, nullable=False)
+    ticket_number = db.Column(db.Integer)  # Add ticket_number field to store the customer's ticket number
+
+    # Relationship to BookedEvents with backref 'customer'
+    booked_events = db.relationship('BookedEvents', backref='customers', lazy=True)
+
+
 class Organiser(db.Model):
-    __tablename__ = 'organiser'
-    organiser_id = db.Column(db.Integer, primary_key=True)
+    __tablename__ = 'organisers'
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False)
     password = db.Column(db.String, nullable=False)
     industry = db.Column(db.String, nullable=False)
     location = db.Column(db.String, nullable=False)
-    admin_id = db.Column(db.Integer, db.ForeignKey('admin.admin_id'), nullable=False)
-    events = db.relationship('Event', backref='organiser', lazy=True)
-class Event(db.Model):
+
+    __table_args__ = (
+        CheckConstraint(industry.in_(['Business', 'Political', 'Academic', 'Charity', 'Community', 'Entertainment', 'Sporting'])),
+    )
+
+    # Relationship to Events with backref 'organiser'
+    events = db.relationship('Events', backref='organisers', lazy=True)
+
+    # Relationship to Payment with backref 'organisers'
+    payments = db.relationship('Payment', backref='organisers', lazy=True)
+
+
+
+class Events(db.Model):
     __tablename__ = 'events'
-    event_id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String, nullable=False)
-    price = db.Column(db.Float, nullable=False)
-    location = db.Column(db.String, nullable=False)
-    image = db.Column(db.String, nullable=True)
-    time = db.Column(db.String, nullable=False)
-    date = db.Column(db.String, nullable=False)
-    description = db.Column(db.String, nullable=False)
-    organiser_id = db.Column(db.Integer, db.ForeignKey('organiser.organiser_id'), nullable=False)
-    tickets_sold = db.Column(db.Integer, default=0, nullable=False) 
-class BookedEvent(db.Model):
-    __tablename__ = 'booked_events'
-    booking_id = db.Column(db.Integer, primary_key=True)
-    event_id = db.Column(db.Integer, db.ForeignKey('events.event_id'), nullable=False)
-    image = db.Column(db.String, nullable=True)
-    price = db.Column(db.Float, nullable=False)
-    customer_id = db.Column(db.Integer, db.ForeignKey('customer.customer_id'), nullable=False)
-    description = db.Column(db.String, nullable=False)
-    title = db.Column(db.String, nullable=False)
-    location = db.Column(db.String, nullable=False)
-    date = db.Column(db.String, nullable=False)
-    time = db.Column(db.String, nullable=False)
-class Payment(db.Model):
-    __tablename__ = 'payment'
-    payment_id = db.Column(db.Integer, primary_key=True)
-    customer_id = db.Column(db.Integer, db.ForeignKey('customer.customer_id'), nullable=False)
-    event_id = db.Column(db.Integer, db.ForeignKey('events.event_id'), nullable=False)
-    organiser_id = db.Column(db.Integer, db.ForeignKey('organiser.organiser_id'), nullable=False)
-    date_paid = db.Column(db.DateTime, nullable=False)
-    
-class Revenue(db.Model):
-    __tablename__ = 'revenue'
-    revenue_id = db.Column(db.Integer, primary_key=True)
-    event_id = db.Column(db.Integer, db.ForeignKey('events.event_id'), nullable=False)
-    # New columns: admin_share and organiser_share
-    admin_share = db.Column(db.Float, nullable=False, default=0.0)
-    organiser_share = db.Column(db.Float, nullable=False, default=0.0)
-    
-    
-class CompanyRevenue(db.Model):
-    __tablename__ = 'company_revenue'
     id = db.Column(db.Integer, primary_key=True)
-    total_amount = db.Column(db.Float, nullable=False, default=0.0)
-    tickets_sold = db.Column(db.Integer, nullable=False, default=0)
-    sales = db.Column(db.Float, nullable=False, default=0.0)
-    
+    title = db.Column(db.String, nullable=False)
+    _price = db.Column('price', db.Float, nullable=False)  # Private column for price
+    location = db.Column(db.String, nullable=False)
+    image = db.Column(db.String, nullable=True)
+    time = db.Column(db.String, nullable=False)
+    description = db.Column(db.String, nullable=False)
+    organiser_id = db.Column(db.Integer, db.ForeignKey('organisers.id'), nullable=False)
+    tickets_number = db.Column(db.Integer, default=0, nullable=False)
+    tickets_status = db.Column(db.String, default='0', nullable=False)
+    ticket_level = db.Column(db.String, nullable=False)  # Add ticket_level field
+
+    def get_price(self):
+        return self._price
+
+    def set_price(self, new_price):
+        self._price = new_price
+
+    price = property(get_price, set_price)  # Property for price with getter and setter
+
+    def get_price_by_ticket_level(self):
+        if self.ticket_level == 'VIP':
+            return self._price * 2
+        elif self.ticket_level == 'Early Bird':
+            return self._price * 1.5
+        else:
+            return self._price
+
+    # Relationship to BookedEvents with backref 'booked_events'
+    booked_events = db.relationship('BookedEvents', backref='events', lazy=True)
+
+    # Relationship to Revenue with backref 'events'
+    revenue = db.relationship('Revenue', backref='events', lazy=True)
+
+
+class BookedEvents(db.Model):
+    __tablename__ = 'booked_events'
+    id = db.Column(db.Integer, primary_key=True)
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'), nullable=False)
+    customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'), nullable=False)
+    event_title = db.Column(db.String, nullable=False)
+    event_location = db.Column(db.String, nullable=False)
+    ticket_level = db.Column(db.String, nullable=False)
+    event = db.relationship('Events', backref='booked_events_list', lazy=True)
+
+
+class Payment(db.Model):
+    __tablename__ = 'payments'
+    id = db.Column(db.Integer, primary_key=True)
+    customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'), nullable=False)
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'), nullable=False)
+    amount = db.Column(db.Integer, nullable=False)
+    organiser_id = db.Column(db.Integer, db.ForeignKey('organisers.id'), nullable=False)
+
+
+class Revenue(db.Model):
+    __tablename__ = 'revenues'
+    id = db.Column(db.Integer, primary_key=True)
+    total_amount = db.Column(db.String, nullable=False)
+    tickets_sold = db.Column(db.Integer, nullable=False)
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'))

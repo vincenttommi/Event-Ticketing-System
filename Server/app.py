@@ -3,6 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate  import Migrate
 from models import db
+from models import db, Admin, Customer, Organiser, Events, BookedEvents, Payment, Revenue
 
 
 app = Flask(__name__)
@@ -24,5 +25,3 @@ db.init_app(app)
 
 if __name__ == '__main__':
     app.run(port=5555)
-    
-
