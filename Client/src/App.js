@@ -1,15 +1,25 @@
 // import Navbar from './Components/Navbar/Navbar';
 import Industry from './Components/Industry/industry';
 import './App.css';
-
+// import CollapsibleExample from './Components/Navbar/Navbar'
+import About from './Components/About/About'
+import Work from './Components/Works/Work'
+import Footer from './Components/Footer/footer'
+import Industry from './Components/Industry/industry';
+import SignupForm from './Components/Auth/SignUp'
+import LoginForm from './Components/Auth/Login'
 
 function App() {
   return (
-    <div className="App">
-      {/* <Navbar/> */}
-      <Industry/>
-     <h1>EventMS</h1>
-    </div>
+   <>
+   {/* <CollapsibleExample /> */}
+   <About />
+   <Industry/>
+   < Work />
+   < Footer />
+   {/* < LoginForm />
+   <SignupForm /> */}
+   </>
   );
 }
 
