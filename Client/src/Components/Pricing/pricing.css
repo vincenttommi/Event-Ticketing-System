@@ -1,0 +1,56 @@
+.industryContents {
+    padding: 0px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #052067;
+    height: 400px;
+}
+
+.about-content {
+    font-size: 20px;
+    justify-content: center;
+    padding-right: 700px;
+    display: inline;
+    font-size: 110%;
+    color:rgb(255, 255, 255);
+}
+
+button{
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  
+  }
+  button:hover{
+    background-color: #3FC12A;
+    color: rgb(246, 247, 248);
+  }
+  
+  .card {
+    display: row;
+    flex-direction: column;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    padding: 16px;
+    margin: 8px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card-content {
+    margin-top: 8px;
+  }
