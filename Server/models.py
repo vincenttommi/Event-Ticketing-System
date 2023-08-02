@@ -22,7 +22,6 @@ class Customer(db.Model):
     password = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False)
     phone_number = db.Column(db.String, nullable=False)
-    ticket_number = db.Column(db.Integer)  # Add ticket_number field to store the customer's ticket number
 
     booked_events = db.relationship('BookedEvents', backref='customers', lazy=True)
 
