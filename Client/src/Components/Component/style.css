@@ -1,0 +1,36 @@
+.component {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .component .group {
+    height: 20px;
+    margin-right: -2px;
+    position: relative;
+    width: 22px;
+  }
+  
+  .component .overlap-group {
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    height: 20px;
+    position: relative;
+    width: 20px;
+  }
+  
+  .component .element {
+    color: #4c4c4c;
+    font-family: "Manrope", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    left: 7px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 2px;
+    white-space: nowrap;
+  }
+  

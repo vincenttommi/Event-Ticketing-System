@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../card";
+// import Card from "../card";
 import './pricing.css';
 
 function Pricing() {
@@ -24,7 +24,7 @@ function Pricing() {
                 <h2 style={{color: '#000000'}}>Frequently Asked Questions</h2>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', margin: '50px 0' }}>
-                <Card>
+                {/* <Card>
                     <h2>Is EMS really free?</h2>
                     <p>You can use EMS for free without providing us with card details. If you wish to sell tickets there is a small fee. </p>
                 </Card>
@@ -39,7 +39,7 @@ function Pricing() {
                 <Card>
                     <h2>Can I cancel at anytime?</h2>
                     <p>Yes, you can cancel at any time - no minimum term, no notice period and no cancellation fee. </p>
-                </Card>
+                </Card> */}
             </div>
             </div>
             
