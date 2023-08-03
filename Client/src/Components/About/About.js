@@ -13,13 +13,12 @@ function About() {
       <div style={{ position: 'relative' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', zIndex: 1 }}>
           <div style={{ paddingTop: '250px', color: '#fff', textAlign: 'center' }}>
-          <h2 >
-            Event Ticketing Made Simple
-          </h2>
-          <h4>Start Selling Tickets in 2 minutes</h4>
-          <button type="button" class="btn btn-success btn-lg">Learn More</button>
+            <h2 >
+              Event Ticketing Made Simple
+            </h2>
+            <h4>Start Selling Tickets in 2 minutes</h4>
+            <button type="button" class="btn btn-success btn-lg">Learn More</button>
           </div>
-         
         </div>
         <img src={img1} className="img-fluid" alt="Responsive image" style={{ width: '100%', height: 'auto',   filter: 'brightness(0.8)', zIndex: 0 }} />
         <h3 style={{ paddingTop: '50px', textAlign: 'center' }}>Events created by thousands of organizations around the globe</h3>
