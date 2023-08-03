@@ -1,18 +1,75 @@
 #!usr/bin/env python3
-from flask import Flask, jsonify, request
+from functools import wraps
+from flask import Flask, abort, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate  import Migrate
+from flask_migrate import Migrate
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from models import db, Admin, Customer, Organiser, Events, BookedEvents, Payment, Revenue
-
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'your_secret_key_here' 
 
-migrate = Migrate(app,db)
-db.init_app(app) 
+migrate = Migrate(app, db)
+db.init_app(app)
+
+# Configure Flask-Login
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+
+
+# User Loader for Flask-Login
+@login_manager.user_loader
+def load_user(user_id):
+    # Assuming you have an 'id' field in all user models
+    return Admin.query.get(int(user_id)) or Customer.query.get(int(user_id)) or Organiser.query.get(int(user_id))
+
+
+# Custom Role-Based Decorator
+def role_required(role):
+    def decorator(view_func):
+        @login_required
+        @wraps(view_func)
+        def wrapper(*args, **kwargs):
+            if not current_user.is_authenticated or current_user.role != role:
+                abort(403)  # Forbidden
+            return view_func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+@app.route('/')
+def home():
+    return "<h3>EventMS</h3>"
+
+# Route for login (if you have a separate login page)
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
+    user = Admin.query.filter_by(email=email).first() or \
+           Customer.query.filter_by(email=email).first() or \
+           Organiser.query.filter_by(email=email).first()
+
+    if user and user.verify_password(password):
+        login_user(user)
+        return jsonify({'message': 'Login successful'}), 200
+
+    # Authentication failed
+    return jsonify({'message': 'Invalid credentials'}), 401
+
+
+# Route for logout
+@app.route('/logout', methods=['POST'])
+@login_required
+def logout():
+    logout_user()
+    return jsonify({'message': 'Logout successful'}), 200
+
 
 @app.route('/customers', methods=['GET'])
+@role_required('customer')  # Protect this route with the 'customer' role
 def get_all_customers():
     customers = Customer.query.all()
     customer_list = []

@@ -10,21 +10,24 @@ fake = Faker()
 
 
 def create_fake_data():
-#admin faker
+    # Admin faker
     for _ in range(5):
         admin = Admin(
             name=fake.name(),
             password=fake.password(),
-            email=fake.email()
+            email=fake.email(),
+            role='admin'  # Add role for Admin
         )
         db.session.add(admin)
-#customer faker
+
+    # Customer faker
     for _ in range(10):
         customer = Customer(
             name=fake.name(),
             password=fake.password(),
             email=fake.email(),
             phone_number=fake.phone_number(),
+            role='customer'  # Add role for Customer
         )
         db.session.add(customer)
 
@@ -35,7 +38,8 @@ def create_fake_data():
             email=fake.email(),
             password=fake.password(),
             industry=fake.random_element(elements=('Business', 'Political', 'Academic', 'Charity', 'Community', 'Entertainment', 'Sporting')),
-            location=fake.city()
+            location=fake.city(),
+            role='organizer'  # Add role for Organiser
         )
         db.session.add(organiser)
 

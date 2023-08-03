@@ -1,32 +1,44 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.schema import CheckConstraint 
+from flask_login import UserMixin
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db' 
 db = SQLAlchemy(app)
 
 
-class Admin(db.Model):
+class Admin(db.Model, UserMixin):
     __tablename__ = 'admin'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     password = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False)
+    role = db.Column(db.String, default='admin', nullable=False)  
+
+    # Implement UserMixin methods
+    def get_id(self):
+        return str(self.id)
 
 
-class Customer(db.Model):
+class Customer(db.Model, UserMixin):
     __tablename__ = 'customers'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     password = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False)
     phone_number = db.Column(db.String, nullable=False)
+    role = db.Column(db.String, default='customer', nullable=False)  
 
     booked_events = db.relationship('BookedEvents', backref='customers', lazy=True)
 
 
-class Organiser(db.Model):
+    # Implement UserMixin methods
+    def get_id(self):
+        return str(self.id)
+
+
+class Organiser(db.Model, UserMixin):
     __tablename__ = 'organisers'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
@@ -34,6 +46,7 @@ class Organiser(db.Model):
     password = db.Column(db.String, nullable=False)
     industry = db.Column(db.String, nullable=False)
     location = db.Column(db.String, nullable=False)
+    role = db.Column(db.String, default='organizer', nullable=False)  
 
     __table_args__ = (
         CheckConstraint(industry.in_(['Business', 'Political', 'Academic', 'Charity', 'Community', 'Entertainment', 'Sporting'])),
@@ -41,6 +54,9 @@ class Organiser(db.Model):
 
     events = db.relationship('Events', backref='organisers', lazy=True)
     payments = db.relationship('Payment', backref='organisers', lazy=True)
+    # Implement UserMixin methods
+    def get_id(self):
+        return str(self.id)
 
 
 
