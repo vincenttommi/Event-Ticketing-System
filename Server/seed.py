@@ -25,7 +25,6 @@ def create_fake_data():
             password=fake.password(),
             email=fake.email(),
             phone_number=fake.phone_number(),
-            ticket_number=fake.random_number(digits=6)
         )
         db.session.add(customer)
 
