@@ -6,7 +6,7 @@ import Work from './Components/Works/Work'
 import Footer from './Components/Footer/footer'
 import SignupForm from './Components/Auth/SignUp'
 import LoginForm from './Components/Auth/Login'
-
+import AttendeeDashboard from './Components/Attendee/AttendeeDashboard'
 function App() {
   return (
    <>
@@ -14,6 +14,7 @@ function App() {
    <About />
    < Work />
    < Footer />
+   < AttendeeDashboard />
    {/* < LoginForm />
    <SignupForm /> */}
    </>
