@@ -1,12 +1,14 @@
 import React from "react";
-import ReviewCard from "../reviewcard/reviewcard";
-import Card from "../card";
-import img2 from '../../assests/gogle.png';
-import img3 from '../../assests/moringa.png';
-import img4 from '../../assests/safaricom.png';
-import img5 from '../../assests/yotube.png';
-import img6 from '../../assests/microsoft.png';
+import ReviewCard from "/Users/bethwel/phase-05/Event-Ticketing-System/Client/src/Components/Reviewcard/reviewcard.js";
+// import Card from "../card";
+import img2 from '/Users/bethwel/phase-05/Event-Ticketing-System/Client/src/assets/gogle.png';
+import img3 from '/Users/bethwel/phase-05/Event-Ticketing-System/Client/src/assets/moringa.png';
+import img4 from '/Users/bethwel/phase-05/Event-Ticketing-System/Client/src/assets/safaricom.png';
+import img5 from '/Users/bethwel/phase-05/Event-Ticketing-System/Client/src/assets/yotube.png';
+import img6 from '/Users/bethwel/phase-05/Event-Ticketing-System/Client/src/assets/microsoft.png';
 import './industry.css';
+
+
 
 function Industry(){
     return (
@@ -34,24 +36,24 @@ function Industry(){
             Why choose EventMS for your next business event?
         </div><br></br>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', margin: '50px 0' }}>
-            <Card>
+            {/* <Card> */}
                 <h2>Powerful features</h2>
                 <p>Lorem ipsum dolor sit amet. Est molestiae animi 
             eum voluptates quae et laborum voluptas et laborum voluptatem vel suscipit quia 
             qui assumenda distinctio aut tenetur sint. </p>
-            </Card>
-            <Card>
+            {/* </Card> */}
+            {/* <Card> */}
                 <h2>Easy Tracking of bookings</h2>
                 <p>Lorem ipsum dolor sit amet. Est molestiae animi 
             eum voluptates quae et laborum voluptas et laborum voluptatem vel suscipit quia 
             qui assumenda distinctio aut tenetur sint. </p>
-            </Card>
-            <Card>
+            {/* </Card> */}
+            {/* <Card> */}
                 <h2>Secure payment</h2>
                 <p>Lorem ipsum dolor sit amet. Est molestiae animi 
             eum voluptates quae et laborum voluptas et laborum voluptatem vel suscipit quia 
             qui assumenda distinctio aut tenetur sint. </p>
-            </Card>
+            {/* </Card> */}
         </div>
         <div class="industries">
             Trusted by industries like yours
