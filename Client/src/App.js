@@ -6,14 +6,15 @@ import Work from './Components/Works/Work'
 import Footer from './Components/Footer/footer'
 import SignupForm from './Components/Auth/SignUp'
 import LoginForm from './Components/Auth/Login'
+
 function App() {
   return (
    <>
-   <CollapsibleExample />
+   {/* <CollapsibleExample />
    <About />
    < Work />
-   < Footer />
-   < AttendeeDashboard />
+   < Footer /> */}
+   {/* < AttendeeDashboard /> */}
    {/* < LoginForm />
    <SignupForm /> */}
    </>
