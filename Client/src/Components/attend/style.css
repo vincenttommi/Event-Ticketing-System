@@ -1,0 +1,1165 @@
+.attendee-dashboard {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .attendee-dashboard .div {
+    background-color: #ffffff;
+    border: 1px none;
+    height: 982px;
+    position: relative;
+    width: 1512px;
+  }
+  
+  .attendee-dashboard .overlap {
+    background-color: #f2f2f2;
+    height: 982px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 240px;
+  }
+  
+  .attendee-dashboard .frame-2 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 24px;
+    left: 32px;
+    position: absolute;
+    top: 212px;
+  }
+  
+  .attendee-dashboard .frame-3 {
+    align-items: center;
+    background-color: #042067;
+    border-radius: 4px;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 12px;
+    padding: 8px 24px 8px 16px;
+    position: relative;
+    width: 167px;
+  }
+  
+  .attendee-dashboard .icon-instance-node {
+    height: 24px !important;
+    position: relative !important;
+    width: 24px !important;
+  }
+  
+  .attendee-dashboard .text-wrapper-2 {
+    color: #ffffff;
+    font-family: "Manrope-Medium", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .frame-4 {
+    align-items: center;
+    align-self: stretch;
+    border-radius: 4px;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 12px;
+    padding: 8px 24px 8px 16px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .attendee-dashboard .text-wrapper-3 {
+    color: #7f7f7f;
+    font-family: "Manrope-Medium", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .frame-wrapper {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .attendee-dashboard .text-wrapper-4 {
+    color: #a65959;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .frame-5 {
+    align-self: stretch;
+    border-radius: 4px;
+    flex: 0 0 auto;
+    position: relative;
+    width: 100%;
+  }
+  
+  .attendee-dashboard .frame-11 {
+    left: 10px !important;
+    position: absolute !important;
+    top: 28px !important;
+  }
+  
+  .attendee-dashboard .frame-instance {
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    background: unset !important;
+    background-clip: unset !important;
+    color: #3ec029 !important;
+    font-size: 36px !important;
+    text-fill-color: unset !important;
+  }
+  
+  .attendee-dashboard .overlap-group-wrapper {
+    height: 55px;
+    left: 272px;
+    position: absolute;
+    top: 60px;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .overlap-group-2 {
+    height: 55px;
+    position: relative;
+  }
+  
+  .attendee-dashboard .rectangle {
+    background-color: #fafafa;
+    border: 1px solid;
+    border-color: #e6e6e6;
+    border-radius: 4px;
+    height: 48px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .group-2 {
+    height: 42px;
+    left: 16px;
+    position: absolute;
+    top: 13px;
+    width: 260px;
+  }
+  
+  .attendee-dashboard .vuesax-linear-search {
+    height: 24px !important;
+    left: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    width: 24px !important;
+  }
+  
+  .attendee-dashboard .text-wrapper-5 {
+    color: #4c4c4c;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 36px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 1px;
+    width: 222px;
+  }
+  
+  .attendee-dashboard .frame-6 {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 40px;
+    left: 1205px;
+    position: absolute;
+    top: 60px;
+  }
+  
+  .attendee-dashboard .frame-7 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 8px;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .attendee-dashboard .ellipse {
+    height: 40px;
+    object-fit: cover;
+    position: relative;
+    width: 40px;
+  }
+  
+  .attendee-dashboard .group-3 {
+    height: 36px;
+    margin-right: -4px;
+    position: relative;
+    width: 106px;
+  }
+  
+  .attendee-dashboard .text-wrapper-6 {
+    color: #4c4c4c;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 14px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .text-wrapper-7 {
+    color: #b3b3b3;
+    font-family: "Manrope-Medium", Helvetica;
+    font-size: 14px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 20px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .vuesax-linear-wrapper {
+    align-items: flex-start;
+    background-color: #f2f2f2;
+    border-radius: 50px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    padding: 8px;
+    position: relative;
+  }
+  
+  .attendee-dashboard .overlap-2 {
+    background-color: #fbfbfb;
+    border-radius: 4px;
+    height: 451px;
+    left: 271px;
+    position: absolute;
+    top: 491px;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .div-wrapper {
+    background-color: #f7f7f7;
+    border-radius: 0px 0px 4px 4px;
+    height: 64px;
+    left: 0;
+    position: absolute;
+    top: 387px;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .frame-8 {
+    align-items: center;
+    display: inline-flex;
+    gap: 24px;
+    left: 24px;
+    position: relative;
+    top: 22px;
+  }
+  
+  .attendee-dashboard .text-wrapper-8 {
+    color: #9f9f9f;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .frame-9 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 8px;
+    position: relative;
+  }
+  
+  .attendee-dashboard .component-1 {
+    flex: 0 0 auto !important;
+  }
+  
+  .attendee-dashboard .text-wrapper-9 {
+    color: #4c4c4c;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .navbar {
+    background-color: #f7f7f7;
+    border-radius: 4px 4px 0px 0px;
+    height: 40px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .text-wrapper-10 {
+    color: #4c4c4c;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    left: 24px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 11px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .text-wrapper-11 {
+    color: #4c4c4c;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    left: 165px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 11px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .text-wrapper-12 {
+    color: #4c4c4c;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    left: 272px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 11px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .text-wrapper-13 {
+    color: #4c4c4c;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    left: 506px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 11px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .text-wrapper-14 {
+    color: #4c4c4c;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    left: 637px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 11px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .group-4 {
+    height: 32px;
+    left: 24px;
+    position: absolute;
+    top: 57px;
+    width: 671px;
+  }
+  
+  .attendee-dashboard .frame-10 {
+    align-items: center;
+    display: inline-flex;
+    gap: 8px;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  
+  .attendee-dashboard .div-2 {
+    background-color: #ffffff;
+    border: 5px solid;
+    border-color: #ebebeb;
+    border-radius: 50px;
+    height: 32px;
+    overflow: hidden;
+    position: relative;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .image {
+    height: 32px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .text-wrapper-15 {
+    color: #7f7f7f;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .frame-12 {
+    align-items: flex-start;
+    background-color: #ddede4;
+    border-radius: 4px;
+    display: inline-flex;
+    gap: 10px;
+    left: 141px;
+    padding: 4px;
+    position: absolute;
+    top: 4px;
+  }
+  
+  .attendee-dashboard .text-wrapper-16 {
+    color: #427a5b;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 16px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .group-5 {
+    height: 24px;
+    left: 248px;
+    position: absolute;
+    top: 4px;
+    width: 180px;
+  }
+  
+  .attendee-dashboard .text-wrapper-17 {
+    color: #4c4c4c;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 106px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .rectangle-wrapper {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 12px;
+    width: 100px;
+  }
+  
+  .attendee-dashboard .rectangle-2 {
+    background-color: #4c4c4c;
+    border-radius: 4px;
+    height: 4px;
+    width: 40px;
+  }
+  
+  .attendee-dashboard .frame-13 {
+    align-items: center;
+    background-color: #ddede4;
+    border-radius: 4px;
+    display: inline-flex;
+    gap: 2px;
+    justify-content: center;
+    left: 138px;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .attendee-dashboard .vuesax-linear-arrow {
+    height: 12px !important;
+    position: relative !important;
+    width: 12px !important;
+  }
+  
+  .attendee-dashboard .text-wrapper-18 {
+    color: #7f7f7f;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 482px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 8px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .text-wrapper-19 {
+    color: #7f7f7f;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 613px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 10px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .group-6 {
+    height: 32px;
+    left: 24px;
+    position: absolute;
+    top: 117px;
+    width: 671px;
+  }
+  
+  .attendee-dashboard .img {
+    height: 32px;
+    object-fit: cover;
+    position: relative;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .frame-14 {
+    align-items: flex-start;
+    background-color: #fcf8ce;
+    border-radius: 4px;
+    display: inline-flex;
+    gap: 10px;
+    left: 141px;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .attendee-dashboard .text-wrapper-20 {
+    color: #928406;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 16px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .group-7 {
+    height: 24px;
+    left: 248px;
+    position: absolute;
+    top: 0;
+    width: 180px;
+  }
+  
+  .attendee-dashboard .rectangle-3 {
+    background-color: #4c4c4c;
+    border-radius: 4px;
+    height: 4px;
+    width: 57px;
+  }
+  
+  .attendee-dashboard .frame-15 {
+    align-items: center;
+    background-color: #eddddd;
+    border-radius: 4px;
+    display: inline-flex;
+    gap: 2px;
+    justify-content: center;
+    left: 138px;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .attendee-dashboard .text-wrapper-21 {
+    color: #a55959;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 16px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .text-wrapper-22 {
+    color: #7f7f7f;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 482px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 4px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .text-wrapper-23 {
+    color: #7f7f7f;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 613px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 6px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .group-8 {
+    height: 32px;
+    left: 24px;
+    position: absolute;
+    top: 173px;
+    width: 679px;
+  }
+  
+  .attendee-dashboard .frame-16 {
+    align-items: flex-start;
+    background-color: #ddede4;
+    border-radius: 4px;
+    display: inline-flex;
+    gap: 10px;
+    left: 141px;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .attendee-dashboard .group-9 {
+    height: 24px;
+    left: 248px;
+    position: absolute;
+    top: 0;
+    width: 185px;
+  }
+  
+  .attendee-dashboard .text-wrapper-24 {
+    color: #7f7f7f;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 106px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .rectangle-4 {
+    background-color: #4c4c4c;
+    border-radius: 4px;
+    height: 4px;
+    width: 89px;
+  }
+  
+  .attendee-dashboard .overlap-3 {
+    height: 33px;
+    left: 24px;
+    position: absolute;
+    top: 228px;
+    width: 632px;
+  }
+  
+  .attendee-dashboard .group-10 {
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    width: 632px;
+  }
+  
+  .attendee-dashboard .frame-17 {
+    align-items: flex-start;
+    background-color: #fafafa;
+    border-radius: 4px;
+    display: inline-flex;
+    gap: 10px;
+    left: 141px;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .attendee-dashboard .text-wrapper-25 {
+    color: #999999;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 16px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .text-wrapper-26 {
+    color: #7f7f7f;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 248px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .group-11 {
+    height: 32px;
+    left: 24px;
+    position: absolute;
+    top: 285px;
+    width: 663px;
+  }
+  
+  .attendee-dashboard .group-12 {
+    height: 24px;
+    left: 248px;
+    position: absolute;
+    top: 0;
+    width: 181px;
+  }
+  
+  .attendee-dashboard .rectangle-5 {
+    background-color: #4c4c4c;
+    border-radius: 4px;
+    height: 4px;
+    width: 50px;
+  }
+  
+  .attendee-dashboard .frame-18 {
+    align-items: center;
+    background-color: #eddede;
+    border-radius: 4px;
+    display: inline-flex;
+    gap: 2px;
+    justify-content: center;
+    left: 138px;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .attendee-dashboard .group-13 {
+    height: 32px;
+    left: 24px;
+    position: absolute;
+    top: 341px;
+    width: 671px;
+  }
+  
+  .attendee-dashboard .indian-man {
+    height: 32px;
+  }
+  
+  .attendee-dashboard .overlap-group-3 {
+    height: 32px;
+    position: relative;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .beard {
+    /* background-image: url(./beard.png); */
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .mask-group {
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .body {
+    /* background-image: url(./body.png); */
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .eye-eyebrow {
+    /* background-image: url(./eye-eyebrow.png); */
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .face {
+    /* background-image: url(./face.png); */
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .moustache {
+    /* background-image: url(./moustache.png); */
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .mouth {
+    /* background-image: url(./mouth.png); */
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .neck {
+    /* background-image: url(./neck.png); */
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .turban {
+    /* background-image: url(./turban.png); */
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+  
+  .attendee-dashboard .group-14 {
+    height: 24px;
+    left: 248px;
+    position: absolute;
+    top: 0;
+    width: 179px;
+  }
+  
+  .attendee-dashboard .text-wrapper-27 {
+    color: #7f7f7f;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 104px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .rectangle-6 {
+    background-color: #4c4c4c;
+    border-radius: 4px;
+    height: 4px;
+    width: 64px;
+  }
+  
+  .attendee-dashboard .line {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 101px;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .line-2 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 156px;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .line-3 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 211px;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .line-4 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 266px;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .line-5 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 321px;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .p {
+    color: #4c4c4c;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 18px;
+    font-weight: 600;
+    left: 272px;
+    letter-spacing: 0;
+    line-height: 32px;
+    position: absolute;
+    top: 187px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .frame-19 {
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+    left: 271px;
+    position: absolute;
+    top: 404px;
+    width: 741px;
+  }
+  
+  .attendee-dashboard .group-15 {
+    height: 32px;
+    position: relative;
+    width: 81px;
+  }
+  
+  .attendee-dashboard .text-wrapper-28 {
+    color: #4c4c4c;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 24px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 32px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .frame-20 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 16px;
+    position: relative;
+  }
+  
+  .attendee-dashboard .group-wrapper {
+    background-color: #fafafa;
+    border: 1px solid;
+    border-color: #e6e6e6;
+    border-radius: 4px;
+    height: 32px;
+    position: relative;
+    width: 240px;
+  }
+  
+  .attendee-dashboard .group-16 {
+    height: 16px;
+    left: 15px;
+    position: relative;
+    top: 7px;
+    width: 114px;
+  }
+  
+  .attendee-dashboard .search-normal {
+    height: 16px !important;
+    left: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    width: 16px !important;
+  }
+  
+  .attendee-dashboard .text-wrapper-29 {
+    color: #4c4c4c;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 32px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .frame-21 {
+    align-items: center;
+    border: 1px solid;
+    border-color: #e6e6e6;
+    border-radius: 4px;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    padding: 8px;
+    position: relative;
+    transform: rotate(180deg);
+    width: 59px;
+  }
+  
+  .attendee-dashboard .text-wrapper-30 {
+    color: #4c4c4c;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 16px;
+    margin-left: -3.5px;
+    margin-top: -1px;
+    position: relative;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .attendee-dashboard .vuesax-linear-filter {
+    height: 16px !important;
+    margin-right: -3.5px !important;
+    position: relative !important;
+    transform: rotate(-180deg) !important;
+    width: 16px !important;
+  }
+  
+  .attendee-dashboard .overlap-4 {
+    background-color: #042067;
+    border-radius: 11px;
+    height: 76px;
+    left: 277px;
+    position: absolute;
+    top: 252px;
+    width: 227px;
+  }
+  
+  .attendee-dashboard .text-wrapper-31 {
+    color: #ffffff;
+    font-family: "Manrope-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    left: 31px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 37px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .text-wrapper-32 {
+    color: #ffffff;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 14px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 8px;
+    white-space: nowrap;
+  }
+  
+  .attendee-dashboard .text-wrapper-33 {
+    color: #ffffff;
+    font-family: "Manrope-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 542px;
+    letter-spacing: 0;
+    line-height: 16px;
+    position: absolute;
+    top: 301px;
+    white-space: nowrap;
+  }
+  

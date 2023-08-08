@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Footer/Footer'
 import Container from 'react-bootstrap/Container';
 import img1 from '../../assets/coursel.jpg';
 import img2 from '../../assets/gogle.png';
@@ -9,19 +10,19 @@ import img6 from '../../assets/microsoft.png';
 
 function About() {
   return (
-    <Container fluid>
+    <><Container fluid>
       <div style={{ position: 'relative' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', zIndex: 1 }}>
           <div style={{ paddingTop: '250px', color: '#fff', textAlign: 'center' }}>
-          <h2 >
-            Event Ticketing Made Simple
-          </h2>
-          <h4>Start Selling Tickets in 2 minutes</h4>
-          <button type="button" class="btn btn-success btn-lg">Learn More</button>
+            <h2>
+              Event Ticketing Made Simple
+            </h2>
+            <h4>Start Selling Tickets in 2 minutes</h4>
+            <button type="button" class="btn btn-success btn-lg">Learn More</button>
           </div>
-         
+
         </div>
-        <img src={img1} className="img-fluid" alt="Responsive image" style={{ width: '100%', height: 'auto',   filter: 'brightness(0.8)', zIndex: 0 }} />
+        <img src={img1} className="img-fluid" alt="Responsive image" style={{ width: '100%', height: 'auto', filter: 'brightness(0.8)', zIndex: 0 }} />
         <h3 style={{ paddingTop: '50px', textAlign: 'center' }}>Events created by thousands of organizations around the globe</h3>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', margin: '50px 0' }}>
           <img src={img2} className="img-fluid" alt="" style={{ maxWidth: '200px', margin: '10px' }} />
@@ -44,20 +45,21 @@ function About() {
           <img src={img1} className="img-fluid" alt="" style={{ width: '200px', marginLeft: '20px' }} />
         </div>
         <div className="powerful" style={{ margin: '50px 0', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-  <div className="info" style={{ padding: '20px' }}>
-    <h1>Powerful <br/>Features in a  Simple <br/>Dashboard</h1>
-    <p style={{ fontSize: '16px' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-    sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-     quis<br/> nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/> 
-     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore<br/>  eu 
-     fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-    non proident, sunt in culpa<br/> qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <img src={img1} className="img-fluid" alt="" style={{ width: '80%', maxWidth: '600px', borderRadius: '25px' }} />
-</div>
-
+          <div className="info" style={{ padding: '20px' }}>
+            <h1>Powerful <br />Features in a  Simple <br />Dashboard</h1>
+            <p style={{ fontSize: '16px' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor <br />incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis<br /> nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br />
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore<br />  eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa<br /> qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <img src={img1} className="img-fluid" alt="" style={{ width: '80%', maxWidth: '600px', borderRadius: '25px' }} />
+        </div>
       </div>
     </Container>
+    <Footer/></>
+    
   );
 }
 
