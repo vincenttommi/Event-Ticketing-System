@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
-import './signup.css';
+import './login.css';
 
-const SignupForm = () => {
+const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
     password: '',
-    confirmPassword: '',
     rememberMe: false,
   });
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -22,28 +25,21 @@ const SignupForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your signup logic here
+    // Add your login logic here
     console.log(formData);
   };
 
   return (
     <Container>
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="signup-form">
-            <h2>Sign Up</h2>
+    <div className="login-screen">
+      <div className="div">
+        <div className="overlap">
+          <h1 className="text-wrapper">EventMS</h1>
+        </div>
+        <div className="overlap-group">
+          <div className="form-container">
+            <h2>Login</h2>
             <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="formName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-
               <Form.Group controlId="formEmail">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
@@ -53,27 +49,28 @@ const SignupForm = () => {
                   onChange={handleChange}
                   required
                 />
-              </Form.Group>
+              </Form.Group><br></br>
 
               <Form.Group controlId="formPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
                   required
                 />
-              </Form.Group>
+              </Form.Group><br></br>
 
-              <Form.Group controlId="formConfirmPassword">
-                <Form.Label>Confirm Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  required
+              <div className="forgot-password">
+              <a href="/forgot-password">Forgot Password?</a>
+            </div>
+
+              <Form.Group controlId="formShowPassword">
+                <Form.Check
+                  type="checkbox"
+                  label="Show Password"
+                  onChange={handleShowPassword}
                 />
               </Form.Group>
 
@@ -85,20 +82,19 @@ const SignupForm = () => {
                   checked={formData.rememberMe}
                   onChange={handleChange}
                 />
-              </Form.Group>
+              </Form.Group><br></br>
 
               <Button variant="primary" type="submit">
-                Sign Up
+                Login
               </Button>
             </Form>
-            <div className="forgot-password">
-              <a href="/forgot-password">Forgot Password?</a>
-            </div>
+            
           </div>
         </div>
       </div>
+    </div>
     </Container>
   );
 };
 
-export default SignupForm;
+export default LoginForm;

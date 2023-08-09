@@ -4,15 +4,35 @@ import React from 'react';
 import Footer from '../Footer/Footer';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import img11 from '../../assets/concert.jpg';
 
 // Define the Explore component using JSX
 function Explore() {
+
+  const containerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    margin: '2%',
+  };
+  const buttonStyle = {
+    backgroundColor: '#007bff',
+    color: 'white',
+    width: 'calc(13% - 2%)',
+    marginLeft: '1%',
+    marginRight: '1%',
+    transition: 'background-color 0.3s',
+    textAlign: 'center',
+    padding: '10px',
+    border: 'none',
+    cursor: 'pointer',
+  };
   return (
    <> <div style={{ display: 'flex-column' }}>
       <div className="image1" style={{ marginLeft: '2%', marginRight: '2%' }}>
         <img
           id="explore_concert_image"
-          // src={}
+           src={img11}
           alt="people at a concert"
           style={{
             display: 'flex',
@@ -23,22 +43,17 @@ function Explore() {
           }}
         />
       </div>
-      <div
-        id="explore_options_bar"
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          margin: '1%'
-        }}
-      >
-        <button>ENTERTAINMENT</button>
-        <button>COMMUNITY</button>
-        <button>SPORTS</button>
-        <button>EDUCATION</button>
-        <button>BUSINESS</button>
-        <button>CHARITY</button>
+
+      <div style={containerStyle}>
+        <button style={buttonStyle}>ENTERTAINMENT</button>
+        <button style={buttonStyle}>COMMUNITY</button>
+        <button style={buttonStyle}>SPORTS</button>
+        <button style={buttonStyle}>EDUCATION</button>
+        <button style={buttonStyle}>BUSINESS</button>
+        <button style={buttonStyle}>CHARITY</button>
       </div>
+      
+    
       <div
         id="explore_concert_cards"
         style={{

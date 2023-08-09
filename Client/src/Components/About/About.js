@@ -56,9 +56,11 @@ function About() {
           </div>
           <img src={img1} className="img-fluid" alt="" style={{ width: '80%', maxWidth: '600px', borderRadius: '25px' }} />
         </div>
+        
       </div>
+      <Footer/>
     </Container>
-    <Footer/></>
+    </>
     
   );
 }

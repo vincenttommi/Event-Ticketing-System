@@ -1,30 +1,32 @@
 import React, { Component }  from 'react';
 import logo from './logo.svg';
-import './App.css';
 import Navbar from './Components/Navbar/Navbar'
 import About from './Components/About/About'
 // import Work from './Components/Works/Work'
 import Footer from './Components/Footer/Footer'
-import SignupForm from './Components/Auth/SignupForm'
-import LoginForm from './Components/Auth/LoginForm'
 import { BrowserRouter, Route,Routes } from 'react-router-dom';
 import Pricing from './Components/Pricing/Pricing';
 import  Explore from  './Components/Explore/Explore';
 import  AdminDashboard from './Components/events/AdminDashboard';
 import AttendeeDashboard from './Components/attend/AttendeeDashboard '
 import Navbar2 from './Components/Navbar/Navbar';
+import Industry from './Components/Industry/Industry';
+import Login  from './Components/Auth/Login';
+import SignUp from './Components/Auth/SignUp';
 // import OrganizerDashboard from  './Components/Organiser/OrganizerDashboard';
 
 function App() {
   return (
   
 <BrowserRouter>
-    <Navbar2 />
+    <Navbar2/>
     <Routes>
-      <Route path="/" element={<About />} />
+      <Route path="/" element={<About />} />  
       <Route path='Pricing' element={<Pricing/>} />
       <Route path = 'Explore' element={<Explore/>}/>
-      <Route path = 'AttendeeDashboard' element={<AttendeeDashboard/>}/>
+      <Route path = 'Industry' element={< Industry/>}/>
+      <Route path = 'SignUp' element={<SignUp/>}/>
+      <Route path = 'Login' element={<Login/>}/>
     </Routes>
 </BrowserRouter>
    

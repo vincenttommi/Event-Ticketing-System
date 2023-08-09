@@ -1,15 +1,68 @@
 .form-container {
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
-}
-
-.forgot-password {
-  margin-top: 10px;
-}
-
-/* Additional styles for the login form */
-.login-form-container {
-  margin-top: 50px;
-}
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 100px;
+    color: #FFFFFF;
+    width: 500px;
+    top: 100px;
+  }
+  
+  .forgot-password {
+    margin-top: 10px;
+    position: absolute;
+    display: table;
+    left: 350px;
+  }
+  
+  /* .login-form-container {
+    margin-top: 50px;
+  } */
+  
+  .login-screen {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .login-screen .div {
+    background-color: #ffffff;
+    border: 1px none;
+    height: 580px;
+    position: relative;
+    width: 1500px;
+  }
+  
+  .login-screen .overlap {
+    background-image: url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80");
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 580px;
+    left: -88px;
+    position: absolute;
+    top: 0;
+    width: 605px;
+  }
+  
+  .login-screen .text-wrapper {
+    color: #ffffff;
+    font-family: "Racing Sans One-Regular", Helvetica;
+    font-size: 44px;
+    font-weight: 1000;
+    left: 52px;
+    letter-spacing: 1.28px;
+    line-height: normal;
+    position: absolute;
+    top: 37px;
+  }
+  
+  .login-screen .overlap-group {
+    background-color: #042067;
+    height: 580px;
+    left: 517px;
+    position: absolute;
+    top: 0;
+    width: 687px;
+  }
+  

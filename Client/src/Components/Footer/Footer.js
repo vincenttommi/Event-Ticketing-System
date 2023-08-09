@@ -1,10 +1,12 @@
 import React from 'react';
+import './footer.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-import './footer.css'
+
 // Rest of the component code...
+
 
 
 function Footer() {

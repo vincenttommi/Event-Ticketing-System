@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./style.css";
 import Footer from "../Footer/Footer";
+import "./style.css";
 
 function Pricing() {
     const [ticketPrice, setTicketPrice] = useState(10); 
@@ -65,7 +65,7 @@ function Pricing() {
                 <h1 className="the-most-reasonable">
                 The most reasonable
                 <br />
-                prices you’ll ever find
+                prices you ll ever find
                 </h1>
                 <p className="text-wrapper">Simple pricing. No hidden fees</p>
                 <div className="overlap">
@@ -91,7 +91,7 @@ function Pricing() {
                         <h2 style={{color: '#081C51'}}>Ticket fee calculator</h2>
                         <h4 style={{color: '#000000'}}>Enter your ticket details to see full cost</h4>          
                     </div>
-                    <div style={{ display: 'flex', backgroundColor: '#052067', paddingTop: '10px', paddingRight: '20px', paddingBottom: '20px', paddingLeft: '20px', margin: '0 40px', borderRadius: '20px'}}>
+                    <div style={{ display: 'flex', backgroundColor: '#052067', paddingTop: '10px', paddingRight: '20px', paddingLeft:'20px', paddingBottom: '20px', paddingLeft: '20px', margin: '0 20px', borderRadius: '20px'}}>
                         <div class="calculate-results">
                             <div class="form-result">
                                 <div class="total-result">
@@ -164,18 +164,24 @@ function Pricing() {
                             </div>
                             {/* <FAQ/> */}
                         </div>
-                        <div style={{ position: '', color: '#FFFFFF', textAlign: 'center', paddingTop: '60px', paddingBottom: '60px', backgroundColor: '#052067' }}>
+                        <div style={{ position: '', color: '#FFFFFF', width:'106.5%', textAlign: 'center', paddingTop: '60px', paddingBottom: '60px', backgroundColor: '#052067' }}>
                         <h3>Event ticketing just got easier</h3><br></br>
                         <h1>Create your event in 2 minutes</h1><br></br>
                         <button type="button" class="btn btn-success btn-lg">Get started</button>
-                    </div>
+                        </div>
+                        <br></br>
+                        
+
+                    
+                    
                 </div>
+
+                <Footer/>
              </div>
 
 
 
           <br></br>
-           <Footer/>
              </>
                 
                 

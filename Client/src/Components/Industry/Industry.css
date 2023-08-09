@@ -1,0 +1,288 @@
+import
+
+.industries {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.reason {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.review {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.review-card{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 30px;
+    padding-left: 50px;
+    width: 90%;
+    margin: 50px 0;
+}
+  
+.review-card > div {
+    display: row;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 50px;
+    background-color: #a8a8a8;
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sponsors {
+    display: flex;
+    max-height: 25%;
+    /* max-width: 15%; */
+}
+
+.card {
+    display: row;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 16px;
+    margin: 8px;
+    width: 300px;
+    box-shadow: 0 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card-content {
+    margin-top: 8px;
+  }
+
+  
+
+  /* .box3 {
+    border: 0px none;
+    height: 747px;
+    overflow-x: hidden;
+    width: 1289px;
+  }
+  
+  .box .category-images3 {
+    height: 747px;
+    left: 0;
+    display: inline-flex;
+    top: 0;
+    width: 1307px;
+  }
+  
+  .box .overlap-group3 {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 200px;
+    left: 0;
+    top: 11px;
+    width: 343px;
+  }
+  
+  .box .text-wrapper4 {
+    color: #ffffff;
+    font-family: "Averia Sans Libre-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 10px;
+    letter-spacing: 0;
+    line-height: 39.4px;
+    position: absolute;
+    text-align: center;
+    top: 156px;
+    white-space: nowrap;
+  }
+  
+  .box .overlap3 {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 248px;
+    left: 994px;
+    position: absolute;
+    top: 444px;
+    width: 290px;
+  }
+  
+  .box .div3 {
+    color: #ffffff;
+    font-family: "Averia Sans Libre-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 25px;
+    letter-spacing: 0;
+    line-height: 39.4px;
+    position: absolute;
+    text-align: center;
+    top: 190px;
+    white-space: nowrap;
+  }
+  
+  .box .div-wrapper3 {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 200px;
+    left: 322px;
+    position: absolute;
+    top: 483px;
+    width: 343px;
+  }
+  
+  .box .text-wrapper_2 {
+    color: #ffffff;
+    font-family: "Averia Sans Libre-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 182px;
+    letter-spacing: 0;
+    line-height: 39.4px;
+    position: absolute;
+    text-align: center;
+    top: 33px;
+    white-space: nowrap;
+  }
+  
+  .box .overlap_2 {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 200px;
+    left: 678px;
+    position: absolute;
+    top: 0;
+    width: 311px;
+  }
+  
+  .box .text-wrapper_3 {
+    color: #ffffff;
+    font-family: "Averia Sans Libre-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 24px;
+    letter-spacing: 0;
+    line-height: 39.4px;
+    position: absolute;
+    text-align: center;
+    top: 147px;
+    white-space: nowrap;
+  }
+  
+  .box .overlap_3 {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 386px;
+    left: 356px;
+    position: absolute;
+    top: 64px;
+    width: 305px;
+  }
+  
+  .box .text-wrapper_4 {
+    color: #ffffff;
+    font-family: "Averia Sans Libre-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 9px;
+    letter-spacing: 0;
+    line-height: 39.4px;
+    position: absolute;
+    text-align: center;
+    top: 330px;
+    white-space: nowrap;
+  }
+  
+  .box .overlap_4 {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 386px;
+    left: 0;
+    position: absolute;
+    top: 231px;
+    width: 305px;
+  }
+  
+  .box .text-wrapper_5 {
+    color: #ffffff;
+    font-family: "Averia Sans Libre-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 34px;
+    letter-spacing: 0;
+    line-height: 39.4px;
+    position: absolute;
+    text-align: center;
+    top: 324px;
+    white-space: nowrap;
+  }
+  
+  .box .overlap_5 {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 386px;
+    left: 677px;
+    position: absolute;
+    top: 231px;
+    width: 305px;
+  }
+  
+  .box .text-wrapper_6 {
+    color: #ffffff;
+    font-family: "Averia Sans Libre-Bold", Helvetica;
+    font-size: 32px;
+    font-weight: 700;
+    left: 38px;
+    letter-spacing: 0;
+    line-height: 35px;
+    position: absolute;
+    text-align: center;
+    top: 337px;
+    white-space: nowrap;
+  }
+  
+  .box .overlap_6 {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 374px;
+    left: 1000px;
+    position: absolute;
+    top: 44px;
+    width: 289px;
+  }
+  
+  .box .text-wrapper_7 {
+    color: #ffffff;
+    font-family: "Averia Sans Libre-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 26px;
+    letter-spacing: 0;
+    line-height: 39.4px;
+    position: absolute;
+    text-align: center;
+    top: 311px;
+    white-space: nowrap;
+  }
+  
+  .box .our-online-event {
+    color: #000000;
+    font-family: "Averia Sans Libre-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 709px;
+    letter-spacing: 0;
+    line-height: 21.9px;
+    position: absolute;
+    text-align: center;
+    top: 637px;
+  }
+   */

@@ -1,11 +1,61 @@
 .signup-form {
     padding: 20px;
+    /* height: 900px; */
+    width: 500px;
+    color: #FFFFFF;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 140px; /* Add a top margin to push the form away from the top */
+    margin-top: 100px; /* Add a top margin to push the form away from the top */
   }
   
   .forgot-password {
     margin-top: 10px;
+  }
+  
+  .signup-screen {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .signup-screen .div {
+    background-color: #ffffff;
+    border: 1px none;
+    height: 580px;
+    position: relative;
+    width: 1500px;
+  }
+  
+  .signup-screen .overlap {
+    background-image: url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80");
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 580px;
+    left: -88px;
+    position: absolute;
+    top: 0;
+    width: 605px;
+  }
+  
+  .signup-screen .text-wrapper {
+    color: #ffffff;
+    font-family: "Racing Sans One-Regular", Helvetica;
+    font-size: 44px;
+    font-weight: 1000;
+    left: 52px;
+    letter-spacing: 1.28px;
+    line-height: normal;
+    position: absolute;
+    top: 37px;
+  }
+  
+  .signup-screen .overlap-group {
+    background-color: #042067;
+    height: 580px;
+    left: 517px;
+    position: absolute;
+    top: 0;
+    width: 687px;
   }
   

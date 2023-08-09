@@ -1,0 +1,102 @@
+body{margin-top:20px;
+    padding-top:80px;
+    }
+    .card {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 0px;
+        position: relative;
+        margin-bottom: 1.56rem;
+    }
+    .card {
+        position: relative;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        min-width: 0px;
+        overflow-wrap: break-word;
+        background-color: rgb(248, 248, 248);
+        background-clip: border-box;
+        border: 0px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.57rem;
+    }
+    .bg-primary {
+        background-color: rgb(240, 194, 75) !important;
+    }
+    .mb-9 {
+        margin-bottom: 4.96rem !important;
+    }
+    
+    .card-icon-border-large {
+        width: 100px;
+        height: 100px;
+        margin: -3.06rem auto 0px;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        border: 6px solid;
+        border-radius: 50%;
+        font-size: 1.88rem;
+        line-height: 90px;
+        color: rgb(102, 102, 102);
+    }
+    .mtn-80 {
+        margin-top: -5rem !important;
+    }
+    .border-primary {
+        border-color: rgb(240, 194, 75) !important;
+    }
+    
+    .text-primary {
+        color: rgb(240, 194, 75) !important;
+    }
+    
+    .bg-success {
+        background-color: rgb(181, 213, 106) !important;
+    }
+    .border-success {
+        border-color: rgb(181, 213, 106) !important;
+    }
+    .text-success {
+        color: rgb(181, 213, 106) !important;
+    }
+    
+    .bg-danger {
+        background-color: rgb(234, 112, 102) !important;
+    }
+    .border-danger {
+        border-color: rgb(234, 112, 102) !important;
+    }
+    .text-danger {
+        color: rgb(234, 112, 102) !important;
+    }
+    
+    .bg-info {
+        background-color: rgb(132, 190, 214) !important;
+    }
+    .border-info {
+        border-color: rgb(132, 190, 214) !important;
+    }
+    .text-info {
+        color: rgb(132, 190, 214) !important;
+    }
+    
+    
+    .bg-purple {
+        background-color: rgb(165, 151, 231) !important;
+    }
+    .border-purple {
+        border-color: rgb(165, 151, 231) !important;
+    }
+    .text-purple {
+        color: rgb(165, 151, 231) !important;
+    }
+    
+    
+    .bg-pink {
+        background-color: rgb(234, 119, 173) !important;
+    }
+    .border-pink {
+        border-color: rgb(234, 119, 173) !important;
+    }
+    .text-pink {
+        color: rgb(234, 119, 173) !important;
+    }

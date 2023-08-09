@@ -1,10 +1,12 @@
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
 import AttendeeDashboard from '../attend/AttendeeDashboard ';
-import React from 'react';
+import Industry from '../Industry/Industry';
+
 
 
 
@@ -17,7 +19,7 @@ const Navbar2 = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Features</Nav.Link>
-            <Nav.Link href="#Industry">Industry</Nav.Link>
+            <Nav.Link href="Industry">Industry</Nav.Link>
             <Nav.Link href="/Explore">Explore Events</Nav.Link>
             <Nav.Link href="/Pricing">Pricing</Nav.Link>
                 {/* <Nav.Link href="/OrganizerDashboard">OrganizerDashboard</Nav.Link>  */}
@@ -25,7 +27,8 @@ const Navbar2 = () => {
               {/* <Nav.Link href="/AttendeeDashboard">AttendeeDashboard</Nav.Link>  */}
           </Nav>
           <Nav>
-            <Nav.Link href="{AttendeeDashboard}">Login</Nav.Link>
+            <Nav.Link href="SignUp">SignUp</Nav.Link>
+            <Nav.Link href="/Login">Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
