@@ -5,12 +5,14 @@ from flask_migrate  import Migrate
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, current_user, logout_user
 from models import db,Events,BookedEvents,Revenue,User
+from flask_cors import CORS
 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'Eventbookingsystem01'
+CORS(app)
 
 migrate = Migrate(app,db)
 db.init_app(app) 
