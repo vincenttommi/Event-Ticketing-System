@@ -1,112 +1,148 @@
 #!usr/bin/env python3
-from functools import wraps
-from flask import Flask, abort, jsonify, request
+from flask import Flask, jsonify, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
-from models import db, Admin, Customer, Organiser, Events, BookedEvents, Payment, Revenue
+from flask_migrate  import Migrate
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import LoginManager, UserMixin, login_user, login_required, current_user, logout_user
+from models import db,Events,BookedEvents,Revenue,User
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'your_secret_key_here' 
+app.config['SECRET_KEY'] = 'Eventbookingsystem01'
 
-migrate = Migrate(app, db)
-db.init_app(app)
-
-# Configure Flask-Login
+migrate = Migrate(app,db)
+db.init_app(app) 
+# Initialize LoginManager
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
 
-# User Loader for Flask-Login
+#register method 
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
+    name = data.get('name')
+    phone_number = data.get('phone_number')
+    role = data.get('role') 
+    
+    if role not in ['admin', 'organizer', 'attendee']:
+        return jsonify({'message': 'Invalid role'}), 400
+    
+    # Check if the email already exists
+    if User.query.filter_by(email=email).first():
+        return jsonify({'message': 'Email already exists'}), 400
+    
+    new_user = User(
+        name=name,
+        email=email,
+        password=generate_password_hash(password),
+        phone_number=phone_number,
+        role=role
+    )
+    
+    db.session.add(new_user)
+    db.session.commit()
+    
+    return jsonify({'message': 'User registered successfully'}), 201
+
+# Load a user by ID
 @login_manager.user_loader
 def load_user(user_id):
-    # Assuming you have an 'id' field in all user models
-    return Admin.query.get(int(user_id)) or Customer.query.get(int(user_id)) or Organiser.query.get(int(user_id))
+    return User.query.get(int(user_id))
 
-
-# Custom Role-Based Decorator
-def role_required(role):
-    def decorator(view_func):
-        @login_required
-        @wraps(view_func)
-        def wrapper(*args, **kwargs):
-            if not current_user.is_authenticated or current_user.role != role:
-                abort(403)  # Forbidden
-            return view_func(*args, **kwargs)
-        return wrapper
-    return decorator
-
-@app.route('/')
-def home():
-    return "<h3>EventMS</h3>"
-
-# Route for login (if you have a separate login page)
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
     email = data.get('email')
     password = data.get('password')
-    user = Admin.query.filter_by(email=email).first() or \
-           Customer.query.filter_by(email=email).first() or \
-           Organiser.query.filter_by(email=email).first()
-
-    if user and user.verify_password(password):
+    
+    user = User.query.filter_by(email=email).first()
+    if user and check_password_hash(user.password, password):
         login_user(user)
-        return jsonify({'message': 'Login successful'}), 200
+        return jsonify({'message': 'Logged in successfully'}), 200
+    else:
+        return jsonify({'message': 'Login failed. Invalid credentials'}), 401
 
-    # Authentication failed
-    return jsonify({'message': 'Invalid credentials'}), 401
-
-
-# Route for logout
-@app.route('/logout', methods=['POST'])
+@app.route('/admin/dashboard')
 @login_required
-def logout():
-    logout_user()
-    return jsonify({'message': 'Logout successful'}), 200
+def admin_dashboard():
+    if current_user.role == 'admin':
+        return 'Admin Dashboard'
+    else:
+        return 'Access denied.'
+
+@app.route('/organizer/dashboard')
+@login_required
+def organizer_dashboard():
+    if current_user.role == 'organizer':
+        return 'Organizer Dashboard'
+    else:
+        return 'Access denied.'
+
+@app.route('/attendee/dashboard')
+@login_required
+def attendee_dashboard():
+    if current_user.role == 'attendee':
+        return 'Attendee Dashboard'
+    else:
+        return 'Access denied.'
 
 
-@app.route('/customers', methods=['GET'])
-@role_required('customer')  # Protect this route with the 'customer' role
-def get_all_customers():
-    customers = Customer.query.all()
-    customer_list = []
-    for customer in customers:
-        customer_data = {
-            'id': customer.id,
-            'name': customer.name,
-            'email': customer.email,
-            'phone_number': customer.phone_number,
+
+
+
+#main route
+@app.route('/')
+def home():
+    return "<h2>Events</h2>"
+#get method for organizers
+@app.route('/organizers', methods=['GET'])
+def get_organizers():
+    organizers = User.query.filter_by(role='organizer').all()
+    organizer_list = []
+    for organizer in organizers:
+        organizer_data = {
+            'id': organizer.id,
+            'name': organizer.name,
+            'email': organizer.email,
+            'phone_number': organizer.phone_number
         }
-        customer_list.append(customer_data)
-    return jsonify(customer_list), 200
+        organizer_list.append(organizer_data)
+    
+    return jsonify({'organizers': organizer_list})
 
-
-#get method for all events
+#get method for events
 @app.route('/events', methods=['GET'])
-def get_all_events():
+def get_events():
     events = Events.query.all()
     event_list = []
+    
     for event in events:
         event_data = {
             'id': event.id,
             'title': event.title,
-            'price': event.price,
             'location': event.location,
-            'image': event.image,
-            'time': event.time,
             'description': event.description,
-            'organiser_id': event.organiser_id,
+            'event_category': event.event_category,
+            'image': event.image,
+            'organizer_id': event.organizer_id,
+            'event_time': event.event_time.strftime('%Y-%m-%d %H:%M:%S'),
+            'ticket_levels': event.ticket_levels,
+            'vip_price': event.vip_price,
+            'regular_price': event.regular_price,
+            'early_bird_price': event.early_bird_price,
             'tickets_number': event.tickets_number,
-            'tickets_status': event.tickets_status,
-            'ticket_level': event.ticket_level,
+            'remaining_tickets': event.remaining_tickets
         }
         event_list.append(event_data)
-    return jsonify(event_list), 200
+    
+    return jsonify({'events': event_list})
 
-#delete method of events
+#delete method for events
 @app.route('/events/<int:event_id>', methods=['DELETE'])
 def delete_event(event_id):
     event = Events.query.get(event_id)
@@ -117,114 +153,81 @@ def delete_event(event_id):
     else:
         return jsonify({'message': 'Event not found'}), 404
 
-#update methods events details
+#update method for events
 @app.route('/events/<int:event_id>', methods=['PUT'])
 def update_event(event_id):
     event = Events.query.get(event_id)
     if event:
         data = request.get_json()
         event.title = data.get('title', event.title)
-        event.price = data.get('price', event.price)
         event.location = data.get('location', event.location)
-        event.image = data.get('image', event.image)
-        event.time = data.get('time', event.time)
         event.description = data.get('description', event.description)
+        event.event_category = data.get('event_category', event.event_category)
+        event.image = data.get('image', event.image)
+        event.event_time = data.get('event_time', event.event_time)
+        event.ticket_levels = data.get('ticket_levels', event.ticket_levels)
+        event.vip_price = data.get('vip_price', event.vip_price)
+        event.regular_price = data.get('regular_price', event.regular_price)
+        event.early_bird_price = data.get('early_bird_price', event.early_bird_price)
         event.tickets_number = data.get('tickets_number', event.tickets_number)
-        event.tickets_status = data.get('tickets_status', event.tickets_status)
-        event.ticket_level = data.get('ticket_level', event.ticket_level)
+        event.remaining_tickets = data.get('remaining_tickets', event.remaining_tickets)
+
         db.session.commit()
         return jsonify({'message': 'Event updated successfully'}), 200
     else:
         return jsonify({'message': 'Event not found'}), 404
 
-#get method for all organizers
-@app.route('/organisers', methods=['GET'])
-def get_all_organisers():
-    organisers = Organiser.query.all()
-    organiser_list = []
-    for organiser in organisers:
-        organiser_data = {
-            'id': organiser.id,
-            'name': organiser.name,
-            'email': organiser.email,
-            'industry': organiser.industry,
-            'location': organiser.location,
-        }
-        organiser_list.append(organiser_data)
-    return jsonify(organiser_list), 200
 
-#delete method for organizers
-@app.route('/organisers/<int:organiser_id>', methods=['DELETE'])
-def delete_organiser(organiser_id):
-    organiser= Organiser.query.get(organiser_id)
-    if organiser:
-        db.session.delete(organiser)
-        db.session.commit()
-        return jsonify({'message': 'Organizer deleted successfully'}), 200
-    else:
-        return jsonify({'message': 'Organizer not found'}), 404
-
-#get method for payments
-@app.route('/payments', methods=['GET'])
-def get_all_payments():
-    payments = Payment.query.all()
-    payment_list = []
-    for payment in payments:
-        payment_data = {
-            'id': payment.id,
-            'customer_id': payment.customer_id,
-            'event_id': payment.event_id,
-            'amount': payment.amount,
-            'organiser_id': payment.organiser_id,
-        }
-        payment_list.append(payment_data)
-    return jsonify(payment_list), 200
-
-#update method for payments
-@app.route('/payments/<int:payment_id>', methods=['PUT'])
-def update_payment(payment_id):
-    payment = Payment.query.get(payment_id)
-    if payment:
-        data = request.get_json()
-        payment.amount = data.get('amount', payment.amount)
-        # You can update other payment attributes here if needed.
-
-        db.session.commit()
-        return jsonify({'message': 'Payment updated successfully'}), 200
-    else:
-        return jsonify({'message': 'Payment not found'}), 404
-
-
-@app.route('/revenues', methods=['GET'])
-def get_all_revenues():
-    revenues = Revenue.query.all()
-    revenue_list = []
-    for revenue in revenues:
-        revenue_data = {
-            'id': revenue.id,
-            'total_amount': revenue.total_amount,
-            'tickets_sold': revenue.tickets_sold,
-            'event_id': revenue.event_id,
-        }
-        revenue_list.append(revenue_data)
-    return jsonify(revenue_list), 200
-
-
-@app.route('/booked-events', methods=['GET'])
-def get_all_booked_events():
+#Get method for booked events
+@app.route('/bookedevents', methods=['GET'])
+def get_booked_events():
     booked_events = BookedEvents.query.all()
-    booked_events_list = []
+    booked_event_list = []
+    
     for booked_event in booked_events:
         booked_event_data = {
             'id': booked_event.id,
             'event_id': booked_event.event_id,
-            'customer_id': booked_event.customer_id,
             'event_title': booked_event.event_title,
             'event_location': booked_event.event_location,
             'ticket_level': booked_event.ticket_level,
+            'attendee_id': booked_event.attendee_id
         }
-        booked_events_list.append(booked_event_data)
-    return jsonify(booked_events_list), 200
+        booked_event_list.append(booked_event_data)
+    
+    return jsonify({'booked_events': booked_event_list})
+
+#delete method for booked events
+@app.route('/booked-events/<int:booked_event_id>', methods=['DELETE'])
+def delete_booked_event(booked_event_id):
+    booked_event = BookedEvents.query.get(booked_event_id)
+    if booked_event:
+        db.session.delete(booked_event)
+        db.session.commit()
+        return jsonify({'message': 'Booked event deleted successfully'}), 200
+    else:
+        return jsonify({'message': 'Booked event not found'}), 404
+
+
+#get method for revenue method 
+@app.route('/revenue', methods=['GET'])
+def get_revenue():
+    revenue_list = []
+    events = Events.query.all()
+    for event in events:
+        total_revenue = 0.0
+        booked_events = BookedEvents.query.filter_by(event_id=event.id).all()
+        for booked_event in booked_events:
+            total_revenue += event.get_ticket_price(booked_event.ticket_level)
+        revenue_data = {
+            'event_id': event.id,
+            'total_revenue': total_revenue
+        }
+        revenue_list.append(revenue_data)
+    
+    return jsonify({'revenue': revenue_list})
+
+
 
 
 
