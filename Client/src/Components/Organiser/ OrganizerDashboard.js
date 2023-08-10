@@ -1,398 +1,317 @@
+import React, { useState, useEffect } from 'react';
+import { Card, Table, Pagination, Container, Row, Col, Nav, Modal, Button, Form } from 'react-bootstrap';
+import './style.css';
 
-import { AiFillCaretDown } from "react-icons/ai";
-import { BsFillExplicitFill } from "react-icons/bs";
-import { FiBarChart  } from "react-icons/fi";
-import { AiOutlineSearch } from "react-icons/ai";
-import { BsBellFill } from "react-icons/bs";
-import { BsFillCursorFill } from "react-icons/bs";
-import { BsFillArrowUpSquareFill } from "react-icons/bs";
-import { AiOutlineLogout } from "react-icons/ai";
-import { FiArrowUp } from "react-icons/fi";
-import { FiArrowUpCircle  } from "react-icons/fi";
-;
-import "./style.css";
-import Footer from "../Footer/Footer";
+const ITEMS_PER_PAGE = 8;
 
-const OrganizerDashboard = () => {
-    return (
+const App = () => {
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [events, setEvents] = useState([]);
+  const [eventsLoading, setEventsLoading] = useState(true);
+  const [currentEvents, setCurrentEvents] = useState([]);
+  const [totalEvents, setTotalEvents] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [newEvent, setNewEvent] = useState({
+    title: '',
+    location: '',
+    description: '',
+    event_category: '',
+    event_time: '',
+    image: '',
+    organizer_id: '',
+    regular_price: '',
+    remaining_tickets: '',
+    ticket_levels: '',
+    tickets_number: '',
+    vip_price: '',
+    early_bird_price: ''
+  });
 
-        <>
-        <div className="organizer-dashboard">
-            <div className="div">
-                <div className="overlap">
-                    <div className="frame-wrapper">
-                        <div className="frame-2">
-                            <AiOutlineLogout className="icon-instance-node" />
-                            <div className="text-wrapper-2" >Logout</div>
-                        </div>
-                    </div>
-                    <div className="frame-3">
-                        <div className="frame-4">
-                            {/* < className="icon-instance-node" /> */}
-                            <div className="text-wrapper-3">Dashboard</div>
-                        </div>
-                        <div className="frame-2">
-                             <BsFillExplicitFill className="icon-instance-node" /> 
-                            <div className="text-wrapper-4">Events</div>
-                        </div>
-                        <div className="frame-2">
-                            <FiBarChart className="icon-instance-node" />
-                            <div className="text-wrapper-4">Revenue</div>
-                        </div>
-                    </div>
-                    {/* <Frame bezierClassName="frame-instance" className="frame-11" text="EventMS" visible={false} /> */}
-                </div>
-                <div className="overlap-group-wrapper">
-                    <div className="overlap-group-2">
-                        <div className="rectangle" />
-                        <div className="group-2">
-                            <AiOutlineSearch className="vuesax-linear-search" />
-                            <div className="text-wrapper-5">Search organizer, events</div>
-                        </div>
-                    </div>
-                </div>
-                <div className="frame-5">
-                    <div className="frame-6">
-                        <img className="ellipse" alt="Ellipse" src="ellipse-1.png" />
-                        <div className="group-3">
-                            <div className="text-wrapper-6">Vincent tommi</div>
-                            <div className="text-wrapper-7">Admin</div>
-                        </div>
-                    </div>
-                    <div className="vuesax-linear-wrapper">
-                        <BsBellFill className="icon-instance-node" />
-                    </div>
-                </div>
-                <div className="overlap-2">
-                    <div className="div-wrapper">
-                        <div className="frame-7">
-                            <div className="text-wrapper-8">Previous page</div>
-                            <div className="frame-8">
-                                {/* <Component className="component-1" />
-                                <Component className="component-1" text="2" />
-                                <Component className="component-1" text="3" />
-                                <Component className="component-1" text="4" />
-                                <Component className="component-1" text="5" />
-                                <Component className="component-1" text="6" />
-                                <Component className="component-1" text="7" /> */}
-                            </div>
-                            <div className="text-wrapper-9">Next page</div>
-                        </div>
-                    </div>
-                    <div className="navbar">
-                        <div className="text-wrapper-10">Artist</div>
-                        <div className="text-wrapper-11">Status</div>
-                        <div className="text-wrapper-12">Ratings</div>
-                        <div className="text-wrapper-13">Projects sold</div>
-                        <div className="text-wrapper-14">Highest sale</div>
-                    </div>
-                    <div className="group-4">
-                        <div className="frame-9">
-                            <div className="div-2">
-                                <img className="image" alt="Image" src="image-12.png" />
-                            </div>
-                            <div className="text-wrapper-15">Bluenose</div>
-                        </div>
-                        <div className="frame-10">
-                            <div className="text-wrapper-16">Verified</div>
-                        </div>
-                        <div className="group-5">
-                            <div className="text-wrapper-17">40%</div>
-                            <div className="rectangle-wrapper">
-                                <div className="rectangle-2" />
-                            </div>
-                            <div className="frame-12">
-                                < FiArrowUp className="vuesax-linear-arrow" />
-                            
-                                <div className="text-wrapper-16" >4%</div>
-                            </div>
-                        </div>
-                        <div className="text-wrapper-18">400</div>
-                        <div className="text-wrapper-19">$400,000</div>
-                    </div>
-                    <div className="group-6">
-                        <div className="frame-9">
-                            <img className="img" alt="Ellipse" src="ellipse-3.png" />
-                            <div className="text-wrapper-15">Pennywise</div>
-                        </div>
-                        <div className="frame-13">
-                            <div className="text-wrapper-20">Pending</div>
-                        </div>
-                        <div className="group-7">
-                            <div className="text-wrapper-17">57%</div>
-                            <div className="rectangle-wrapper">
-                                <div className="rectangle-3" />
-                            </div>
-                            <div className="frame-14">
-                                <FiArrowUp className="vuesax-linear-arrow" />
-                                <div className="text-wrapper-21">8%</div>
-                            </div>
-                        </div>
-                        <div className="text-wrapper-22">200</div>
-                        <div className="text-wrapper-23">$400,000</div>
-                    </div>
-                    <div className="group-8">
-                        <div className="frame-9">
-                            <div className="div-2">
-                                <img className="image" alt="Image" src="image-10.png" />
-                            </div>
-                            <div className="text-wrapper-15">Flotsam</div>
-                        </div>
-                        <div className="frame-15">
-                            <div className="text-wrapper-16">Verified</div>
-                        </div>
-                        <div className="group-9">
-                            <div className="text-wrapper-24">89%</div>
-                            <div className="rectangle-wrapper">
-                                <div className="rectangle-4" />
-                            </div>
-                            <div className="frame-12">
-                                <FiArrowUp className="vuesax-linear-arrow" />
-                                <div className="text-wrapper-16">19%</div>
-                            </div>
-                        </div>
-                        <div className="text-wrapper-22">40,000</div>
-                        <div className="text-wrapper-23">$1,400,000</div>
-                    </div>
-                    <div className="overlap-3">
-                        <div className="group-10">
-                            <div className="frame-9">
-                                <img className="img" alt="Ellipse" src="image.png" />
-                                <div className="text-wrapper-15">Gregautsch</div>
-                            </div>
-                            <div className="frame-16">
-                                <div className="text-wrapper-25">Unverified</div>
-                            </div>
-                            <div className="text-wrapper-22">0</div>
-                            <div className="text-wrapper-23">$0</div>
-                        </div>
-                        <div className="text-wrapper-26">No ratings available</div>
-                    </div>
-                    <div className="group-11">
-                        <div className="frame-9">
-                            <img className="img" alt="Ellipse" src="ellipse-3-2.png" />
-                            <div className="text-wrapper-15">ElPistolero</div>
-                        </div>
-                        <div className="frame-15">
-                            <div className="text-wrapper-16">Verified</div>
-                        </div>
-                        <div className="group-12">
-                            <div className="text-wrapper-17">50%</div>
-                            <div className="rectangle-wrapper">
-                                <div className="rectangle-5" />
-                            </div>
-                            <div className="frame-17">
-                                <FiArrowUp className="vuesax-linear-arrow" />
-                                <div className="text-wrapper-21">6%</div>
-                            </div>
-                        </div>
-                        <div className="text-wrapper-22">30</div>
-                        <div className="text-wrapper-23">$25,000</div>
-                    </div>
-                    <div className="group-13">
-                        <div className="frame-9">
-                            <div className="div-2">
-                                <div className="indian-man">
-                                    <div className="overlap-group-3">
-                                        <div className="beard">
-                                            <img className="mask-group" alt="Mask group" src="mask-group.png" />
-                                        </div>
-                                        <div className="body">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-2.png" />
-                                        </div>
-                                        <div className="eye-eyebrow">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-3.png" />
-                                        </div>
-                                        <div className="face">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-4.png" />
-                                        </div>
-                                        <div className="moustache">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-5.png" />
-                                        </div>
-                                        <div className="mouth">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-6.png" />
-                                        </div>
-                                        <div className="neck">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-7.png" />
-                                        </div>
-                                        <div className="turban">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-8.png" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text-wrapper-15">Siuuuuuuuu</div>
-                        </div>
-                        <div className="frame-13">
-                            <div className="text-wrapper-20">Pending</div>
-                        </div>
-                        <div className="group-14">
-                            <div className="text-wrapper-27">64%</div>
-                            <div className="rectangle-wrapper">
-                                <div className="rectangle-6" />
-                            </div>
-                            <div className="frame-12">
-                                <FiArrowUp className="vuesax-linear-arrow" />
-                                <div className="text-wrapper-16">7%</div>
-                            </div>
-                        </div>
-                        <div className="text-wrapper-22">400</div>
-                        <div className="text-wrapper-23">$400,000</div>
-                    </div>
-                    <img className="line" alt="Line" src="line-1.svg" />
-                    <img className="line-2" alt="Line" src="line-2.svg" />
-                    <img className="line-3" alt="Line" src="line-3.svg" />
-                    <img className="line-4" alt="Line" src="line-4.svg" />
-                    <img className="line-5" alt="Line" src="line-5.svg" />
-                </div>
-                <div className="overlap-4">
-                    <div className="text-wrapper-28">Best-selling Event</div>
-                    <div className="frame-18">
-                        <div className="frame-6">
-                            <div className="div-2">
-                                <img className="image" alt="Image" src="image-10-2.png" />
-                            </div>
-                            <div className="text-wrapper-9">Flotsam</div>
-                        </div>
-                        <div className="text-wrapper-29">40k+ sales</div>
-                        <div className="text-wrapper-29">$1.4m revenue</div>
-                    </div>
-                    <div className="frame-19">
-                        <div className="frame-6">
-                            <div className="div-2">
-                                <div className="indian-man">
-                                    <div className="overlap-group-3">
-                                        <div className="mask-group-wrapper">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-9.png" />
-                                        </div>
-                                        <div className="img-wrapper">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-10.png" />
-                                        </div>
-                                        <div className="eye-eyebrow-2">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-11.png" />
-                                        </div>
-                                        <div className="face-2">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-12.png" />
-                                        </div>
-                                        <div className="moustache-2">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-13.png" />
-                                        </div>
-                                        <div className="mouth-2">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-14.png" />
-                                        </div>
-                                        <div className="neck-2">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-15.png" />
-                                        </div>
-                                        <div className="turban-2">
-                                            <img className="mask-group" alt="Mask group" src="mask-group-16.png" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="text-wrapper-9">Siuuuuu</div>
-                        </div>
-                        <div className="text-wrapper-29">40k+ sales</div>
-                        <div className="text-wrapper-29">$1.4m revenue</div>
-                    </div>
-                    <div className="frame-20">
-                        <div className="frame-6">
-                            <div className="div-2">
-                                <img className="image" alt="Image" src="image-12-2.png" />
-                            </div>
-                            <div className="text-wrapper-9">Bluenose</div>
-                        </div>
-                        <div className="text-wrapper-29">40k+ sales</div>
-                        <div className="text-wrapper-29">$1.4m revenue</div>
-                    </div>
-                    <div className="frame-21">
-                        <div className="text-wrapper-30">View all Events</div>
-                    </div>
-                </div>
-                <div className="overlap-5">
-                    <div className="text-wrapper-28">Best-selling projects</div>
-                    <div className="frame-18">
-                        <div className="frame-22">
-                            <img className="img" alt="Rectangle" src="rectangle-24.png" />
-                            <div className="text-wrapper-9">Flotsam</div>
-                        </div>
-                        <div className="text-wrapper-29">40k+ sales</div>
-                        <div className="text-wrapper-29">$1.4m revenue</div>
-                    </div>
-                    <div className="frame-19">
-                        <div className="frame-22">
-                            <img className="img" alt="Vectary texture" src="vectary-texture.png" />
-                            <div className="text-wrapper-9">Astrom</div>
-                        </div>
-                        <div className="text-wrapper-29">10k+ sales</div>
-                        <div className="text-wrapper-29">$1.4m revenue</div>
-                    </div>
-                    <div className="frame-23">
-                        <div className="frame-22">
-                            <img className="img" alt="Vectary texture" src="vectary-texture-2.png" />
-                            <div className="text-wrapper-9">$Moon</div>
-                        </div>
-                        <div className="text-wrapper-29">10k+ sales</div>
-                        <div className="text-wrapper-29">$1.4m revenue</div>
-                    </div>
-                    <div className="frame-21">
-                        <div className="text-wrapper-30">View all projects</div>
-                    </div>
-                </div>
-                <p className="p">In the last 30 days,</p>
-                <div className="frame-24">
-                    <div className="group-15">
-                        <div className="text-wrapper-31">Events<i class="bi bi-0-circle-fill"></i></div>
-                        <p className="text-wrapper-32">Monitor artist sales, reviews, etc.</p>
-                    </div>
-                    <div className="frame-25">
-                        <div className="group-wrapper">
-                            <div className="group-16">
-                                <AiOutlineSearch className="search-normal" />
-                                <div className="text-wrapper-33">Search artists</div>
-                            </div>
-                        </div>
-                        <div className="frame-26">
-                            <div className="text-wrapper-34">Filter</div>
-                            <BsFillCursorFill className="vuesax-linear-filter" />
-                        </div>
-                    </div>
-                </div>
-                <div className="overlap-6">
-                    <div className="frame-27">
-                        <div className="group-17">
-                            <div className="group-18">
-                                <div className="overlap-group-4">
-                                    <div className="text-wrapper-35">10</div>
-                                </div>
-                            </div>
-                            <div className="overlap-wrapper">
-                                <div className="overlap-group-4">
-                                    <div className="text-wrapper-36">34</div>
-                                </div>
-                            </div>
-                            <div className="ellipse-2" />
-                            <div className="ellipse-3" />
-                            <div className="overlap-7">
-                                <div className="text-wrapper-37">PM</div>
-                            </div>
-                        </div>
-                        <div className="text-wrapper-38">11/05/2022</div>
-                    </div>
-                </div>
-                <div className="overlap-8">
-                    <div className="text-wrapper-39">40</div>
-                    <div className="text-wrapper-40">Total Events</div>
-                </div>
-                <div className="overlap-9">
-                    <div className="text-wrapper-41">Ksh 400,000</div>
-                    <div className="text-wrapper-42">Total Revenue</div>
-                </div>
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        const response = await fetch('http://127.0.0.1:5000/events');
+        const data = await response.json();
+
+        if (Array.isArray(data.events)) {
+          setEvents(data.events);
+          setCurrentEvents(data.events.slice(0, ITEMS_PER_PAGE)); // Initial events on page 1
+        } else {
+          console.error('Invalid data format:', data);
+        }
+
+        setEventsLoading(false);
+      } catch (error) {
+        console.error('Error fetching events:', error);
+        setEventsLoading(false);
+      }
+    }
+
+    async function fetchTotalEvents() {
+      try {
+        const response = await fetch('http://127.0.0.1:5000/get_total_events');
+        const data = await response.json();
+        setTotalEvents(data.total_events);
+      } catch (error) {
+        console.error('Error fetching total events:', error);
+      }
+    }
+
+    fetchEvents();
+    fetchTotalEvents();
+  }, []);
+
+  const totalPages = Math.ceil(events.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    const newStartIndex = (pageNumber - 1) * ITEMS_PER_PAGE;
+    const newEndIndex = newStartIndex + ITEMS_PER_PAGE;
+    setCurrentEvents(events.slice(newStartIndex, newEndIndex));
+  };
+
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewEvent((prevEvent) => ({ ...prevEvent, [name]: value }));
+  };
+
+  const handleAddEvent = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/add_event', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newEvent),
+      });
+
+      if (response.ok) {
+        // Refresh the events list after adding the event
+        setEvents();
+        handleCloseModal();
+      } else {
+        console.error('Error adding event:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error adding event:', error);
+    }
+  };
+
+  return (
+    <div className="App">
+      <Container fluid>
+        <Row>
+          <Col sm={2} className="sidebar">
+            <div className="sidebar-title">
+              EventMS
             </div>
-        </div>
-        
+            <Nav defaultActiveKey="/events" className="flex-column">
+              <Nav.Link href="/events">Events</Nav.Link>
+            </Nav>
+          </Col>
+          <Col sm={10} className="main-content">
+            <div>
+              <h2>Events</h2>
+              <Button variant="primary" onClick={handleShowModal}>
+                Add New Event
+              </Button>
+              {eventsLoading ? (
+                <p>Loading...</p>
+              ) : (
+                <div>
+                  <Table striped bordered hover>
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Location</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Organizer ID</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {currentEvents.map((event) => (
+                        <tr key={event.id}>
+                          <td>{event.id}</td>
+                          <td>{event.title}</td>
+                          <td>{event.location}</td>
+                          <td>{event.description}</td>
+                          <td>{event.event_category}</td>
+                          <td>{event.organizer_id}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                  <Pagination>
+                    <Pagination.Prev
+                      disabled={currentPage === 1}
+                      onClick={() => handlePageChange(currentPage - 1)}
+                    />
+                    {Array.from({ length: totalPages }, (_, index) => (
+                      <Pagination.Item
+                        key={index + 1}
+                        active={index + 1 === currentPage}
+                        onClick={() => handlePageChange(index + 1)}
+                      >
+                        {index + 1}
+                      </Pagination.Item>
+                    ))}
+                    <Pagination.Next
+                      disabled={currentPage === totalPages}
+                      onClick={() => handlePageChange(currentPage + 1)}
+                    />
+                  </Pagination>
+                </div>
+              )}
+            </div>
+          </Col>
+        </Row>
+      </Container>
 
-        <Footer/>
-        </>
-    );
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add New Event</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="title">
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                type="text"
+                name="title"
+                value={newEvent.title}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="location">
+              <Form.Label>Location</Form.Label>
+              <Form.Control
+                type="text"
+                name="location"
+                value={newEvent.location}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="description">
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                name="description"
+                value={newEvent.description}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="event_category">
+              <Form.Label>Category</Form.Label>
+              <Form.Control
+                type="text"
+                name="event_category"
+                value={newEvent.event_category}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="event_time">
+              <Form.Label>Event Time</Form.Label>
+              <Form.Control
+                type="datetime-local"
+                name="event_time"
+                value={newEvent.event_time}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="image">
+              <Form.Label>Image</Form.Label>
+              <Form.Control
+                type="text"
+                name="image"
+                value={newEvent.image}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="organizer_id">
+              <Form.Label>Organizer ID</Form.Label>
+              <Form.Control
+                type="text"
+                name="organizer_id"
+                value={newEvent.organizer_id}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="regular_price">
+              <Form.Label>Regular Price</Form.Label>
+              <Form.Control
+                type="number"
+                name="regular_price"
+                value={newEvent.regular_price}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="remaining_tickets">
+              <Form.Label>Remaining Tickets</Form.Label>
+              <Form.Control
+                type="number"
+                name="remaining_tickets"
+                value={newEvent.remaining_tickets}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="ticket_levels">
+              <Form.Label>Ticket Levels</Form.Label>
+              <Form.Control
+                type="text"
+                name="ticket_levels"
+                value={newEvent.ticket_levels}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="tickets_number">
+              <Form.Label>Tickets Number</Form.Label>
+              <Form.Control
+                type="number"
+                name="tickets_number"
+                value={newEvent.tickets_number}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="vip_price">
+              <Form.Label>VIP Price</Form.Label>
+              <Form.Control
+                type="number"
+                name="vip_price"
+                value={newEvent.vip_price}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="early_bird_price">
+              <Form.Label>Early Bird Price</Form.Label>
+              <Form.Control
+                type="number"
+                name="early_bird_price"
+                value={newEvent.early_bird_price}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleAddEvent}>
+            Add Event
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
 };
-export default OrganizerDashboard
+
+export default App;

@@ -9,16 +9,20 @@ import Pricing from './Components/Pricing/Pricing';
 import  Explore from  './Components/Explore/Explore';
 import  AdminDashboard from './Components/events/AdminDashboard';
 import AttendeeDashboard from './Components/attend/AttendeeDashboard '
+import OrganizerDashboard from './Components/Organiser/ OrganizerDashboard'
 import Navbar2 from './Components/Navbar/Navbar';
 import Industry from './Components/Industry/Industry';
 import Login  from './Components/Auth/Login';
 import SignUp from './Components/Auth/SignUp';
-// import OrganizerDashboard from  './Components/Organiser/OrganizerDashboard';
+
 
 function App() {
   return (
+    // < AdminDashboard />
+    // < OrganizerDashboard/>
+    // <AttendeeDashboard />
   
-<BrowserRouter>
+ <BrowserRouter>
     <Navbar2/>
     <Routes>
       <Route path="/" element={<About />} />  
@@ -28,7 +32,8 @@ function App() {
       <Route path = 'SignUp' element={<SignUp/>}/>
       <Route path = 'Login' element={<Login/>}/>
     </Routes>
-</BrowserRouter>
+</BrowserRouter> 
+
    
   );
 } 

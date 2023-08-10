@@ -144,6 +144,59 @@ def get_events():
     
     return jsonify({'events': event_list})
 
+
+@app.route('/add_event', methods=['POST'])
+def add_event():
+    try:
+        data = request.json
+
+        new_event = Events(
+            title=data['title'],
+            location=data['location'],
+            description=data['description'],
+            event_category=data['event_category'],
+            image=data['image'],
+            organizer_id=data['organizer_id'],
+            event_time=data['event_time'],
+            ticket_levels=data['ticket_levels'],
+            vip_price=data['vip_price'],
+            regular_price=data['regular_price'],
+            early_bird_price=data['early_bird_price'],
+            tickets_number=data['tickets_number'],
+            remaining_tickets=data['remaining_tickets']
+        )
+
+        db.session.add(new_event)
+        db.session.commit()
+
+        return jsonify({'message': 'Event added successfully'}), 201
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+@app.route('/events/organizer/<int:organizer_id>', methods=['GET'])
+def get_events_by_organizer(organizer_id):
+    events = Events.query.filter_by(organizer_id=organizer_id).all()
+    
+    if not events:
+        return jsonify({'message': 'No events found for the organizer'}), 404
+    
+    event_list = []
+    
+    for event in events:
+        event_data = {
+            'id': event.id,
+            'title': event.title,
+            'location': event.location,
+            'description': event.description,
+            'event_category': event.event_category,
+            'event_time': event.event_time.isoformat(),
+            'remaining_tickets': event.remaining_tickets
+        }
+        event_list.append(event_data)
+    
+    return jsonify({'events': event_list})
+
 #delete method for events
 @app.route('/events/<int:event_id>', methods=['DELETE'])
 def delete_event(event_id):
@@ -230,7 +283,23 @@ def get_revenue():
     return jsonify({'revenue': revenue_list})
 
 
+#get method for total events
+@app.route('/get_total_events', methods=['GET'])
+def get_total_events():
+    total_events = Events.query.count()
+    response = {
+        'total_events': total_events
+    }
+    return jsonify(response)
 
+#get method for total organizers
+@app.route('/total_organizers', methods=['GET'])
+def get_total_organizers():
+    total_organizers = User.query.filter_by(role='organizer').count()
+    response_data = {
+        'total_organizers': total_organizers
+    }
+    return jsonify(response_data)
 
 
 if __name__ == '__main__':
